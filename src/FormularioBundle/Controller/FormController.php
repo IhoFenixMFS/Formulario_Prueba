@@ -12,11 +12,12 @@ class FormController extends Controller
             $em = $this->getDoctrine()->getMAnager();
 
             $servicios = $em->getRepository('FormularioBundle:Servicios')->findAll();
-
-            return $this->render('FormularioBundle:VistaTwig:index.html.twig', array('servicios'=> $servicios));
+            $res = '<h1>hola</h1>';
+            return new Response ($res);
+           /* return $this->render('FormularioBundle:VistaTwig:index.html.twig', array('servicios'=> $servicios));*/
         }
 
-        public function viewAction ()
+    public function viewAction ()
         {   
           
             /*

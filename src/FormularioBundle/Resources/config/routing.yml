@@ -3,7 +3,7 @@ formulario_homepage:
     defaults: { _controller: FormularioBundle:Default:index }
 
 formulario_index:
-    path:     /form/index
+    path:     /form/indexForm
     defaults: { _controller: FormularioBundle:Form:indexForm }
 
 formulario_add:
