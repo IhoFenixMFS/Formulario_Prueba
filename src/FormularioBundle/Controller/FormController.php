@@ -7,14 +7,15 @@ use Symfony\Component\HttpFoundation\Response;
 
 class FormController extends Controller
 {
-    public function indexFormAction()
+    public function indexAction()
         {
             $em = $this->getDoctrine()->getMAnager();
 
             $servicios = $em->getRepository('FormularioBundle:Servicios')->findAll();
            /* $res = '<h1>hola</h1>';
             return new Response ($res);*/
-           return $this->render('FormularioBundle:index.html.twig', array('servicios'=> $servicios));
+           /*return $this->render('FormularioBundle::index.html.twig', array('servicios'=> $servicios));*/
+           return $this->render('FormularioBundle:Form:indexF.html.twig');
         }
 
     public function viewAction ()
