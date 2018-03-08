@@ -1,0 +1,69 @@
+formulario_homepage:
+    path:     /
+    defaults: { _controller: FormularioBundle:Default:index }
+
+formulario_index:
+    path:     /form/index
+    defaults: { _controller: FormularioBundle:Form:indexForm }
+
+formulario_add:
+    path:     /formulario/add
+    defaults: {_controler: FormularioBundle:Form:add}
+
+formulario_edit:
+    path:     /formulario/edit/{id}
+    defaults: {_controler: FormularioBundle:Form:edit}
+
+formulario_view:
+    path:     /formulario/view
+    defaults: {_controler: FormularioBundle:Form:view}
+
+formulario_delete:
+    path:     /formulario/delete
+    defaults: {_controler: FormularioBundle:Form:delete}
+
+#EJEMPLOS
+
+formulario_tablas:
+    path:     /form/tablas
+    defaults: { _controller: FormularioBundle:Form:tablas }
+
+formulario_tablaMezcla:
+    path:     /form/tmezcla
+    defaults: { _controller: FormularioBundle:Form:tablaMezclas }
+
+formulario_tablaFacturacion:
+    path:     /form/tfacturacion
+    defaults: { _controller: FormularioBundle:Form:tablaFacturacion }
+
+formulario_tablaLugares:
+    path:     /form/tlugares
+    defaults: { _controller: FormularioBundle:Form:tablaLugares }
+
+formulario_tablaServicios:
+    path:     /form/tservicios
+    defaults: { _controller: FormularioBundle:Form:tablaServicios }
+
+formulario_tablaServiciosSolicitados:
+    path:     /form/tservsolicitados
+    defaults: { _controller: FormularioBundle:Form:tablaServiciosSolicitados }
+
+formulario_tablaSolicitante:
+    path:     /form/tsolicitante
+    defaults: { _controller: FormularioBundle:Form:tablaSolicitante }
+
+formulario_tablaSolicitudes:
+    path:     /form/tsolicitudes
+    defaults: { _controller: FormularioBundle:Form:tablaSolicitudes }
+
+formulario_ejemplo:
+    path:     /form/ejemplo/{page}
+    defaults: { _controller: FormularioBundle:Form:ejemplo, page: 0 }
+    requirements:
+
+formulario_ejemplo2:
+    path:     /form/ejemplo2
+    defaults: { _controller: FormularioBundle:Form:ejemplo2}
+    requirements:
+
+####page: \d+
