@@ -7,13 +7,20 @@ use Symfony\Component\HttpFoundation\Response;
 
 
 class FormController extends Controller
-{
+{   
+  /*revisar video 06, minuto 20:49*/
     public function indexfAction()
         {
-            $em = $this->getDoctrine()->getMAnager();
- 
-            $servicios = $em->getRepository('FormularioBundle:Servicios')->findAll();
-           return $this->render('@Formulario/Form/indexf.html.twig', array('servicios'=> $servicios));
+          $em = $this->getDoctrine()->getMAnager();
+          $solicitudes = $em->getRepository('FormularioBundle:Solicitudes')->findAll();
+          $facturaciones = $em->getRepository('FormularioBundle:Facturacion')->findAll();
+          $lugares = $em->getRepository('FormularioBundle:Lugares')->findAll();
+          $servicios = $em->getRepository('FormularioBundle:Servicios')->findAll();
+          $SerSolicitados = $em->getRepository('FormularioBundle:ServiciosSolicitados')->findAll();
+          $solicitantes = $em->getRepository('FormularioBundle:Solicitante')->findAll(); 
+          
+          return $this->render('@Formulario/Form/indexf.html.twig', array('servicios'=> $servicios, 'solicitudes'=> $solicitudes, 'facturaciones'=> $facturaciones, 'lugares'=> $lugares, 'SerSolicitados'=> $SerSolicitados, 'solicitantes'=> $solicitantes));
+
         }
 
     public function viewAction ()
@@ -21,6 +28,67 @@ class FormController extends Controller
           
             /*
             */
+        }
+
+   public function addfAction()
+        {   
+          return new Response ('hola');         
+           /*return $this ->render('@Formulario/Form/addf.html.twig');*/
+        }
+
+  /*Mostrar las tablas con plantillas*/
+    public function facturacionAction()
+        {
+          $em = $this->getDoctrine()->getMAnager();
+          $facturaciones = $em->getRepository('FormularioBundle:Facturacion')->findAll();
+         
+          return $this->render('@Formulario/Form/facturacion.html.twig', array('facturaciones'=> $facturaciones));
+
+        }
+
+    public function lugaresAction()
+        {
+          $em = $this->getDoctrine()->getMAnager();
+          $lugares = $em->getRepository('FormularioBundle:Lugares')->findAll();
+         
+          return $this->render('@Formulario/Form/lugares.html.twig', array('lugares'=> $lugares));
+
+        }
+ 
+    public function serviciosAction()
+        {
+          $em = $this->getDoctrine()->getMAnager();
+          $servicios = $em->getRepository('FormularioBundle:Servicios')->findAll();
+         
+          return $this->render('@Formulario/Form/servicios.html.twig', array('servicios'=> $servicios));
+
+        }
+
+    public function serSolicitadosAction()
+        {
+          $em = $this->getDoctrine()->getMAnager();
+          $SerSolicitados = $em->getRepository('FormularioBundle:ServiciosSolicitados')->findAll();
+         
+          return $this->render('@Formulario/Form/serSolicitados.html.twig', array('SerSolicitados'=> $SerSolicitados));
+
+        }
+
+    public function solicitanteAction()
+        {
+          $em = $this->getDoctrine()->getMAnager();
+          $solicitantes = $em->getRepository('FormularioBundle:Solicitante')->findAll(); 
+         
+          return $this->render('@Formulario/Form/solicitante.html.twig', array('solicitantes'=> $solicitantes));
+
+        }
+
+    public function solicitudesAction()
+        {
+          $em = $this->getDoctrine()->getMAnager();
+          $solicitudes = $em->getRepository('FormularioBundle:Solicitudes')->findAll();
+         
+          return $this->render('@Formulario/Form/solicitudes.html.twig', array('solicitudes'=> $solicitudes));
+
         }
 
     /*Pruebas con las tablas:*/

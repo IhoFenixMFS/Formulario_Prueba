@@ -20,48 +20,46 @@
 	            <td><font color='pink'> 
 					{% for solicitante in solicitantes %}
 						{% if solicitante.id == solicitud.idSolicitante %}
-							{{ solicitante.nombreSolicitante }}
+							{{ solicitante.nombre }}
 						{% endif %}
 					{% endfor %}
 	            </font></td> 
-	             <td><font color='pink'> {{ solicitud.CIFNIFFactura }} </font></td>
-	            <td><font color='pink'>
+	            <td><font color='pink'>{#
 	            	{% for facturacion in facturaciones %}
 						{% if facturacion.CIFNIF == solicitud.CIFNIFFactura %}
 							{{ facturacion.NombreEmpresa }}
 						{% endif %}
 					{% endfor %}
 	            </font></td>
-	            <td><font color='pink'> Campus
+	            <td><font color='pink'>
 	            	{% for lugar in lugares %}
 						{% if lugar.id == solicitud.IdLugar %}
 								{{ lugar.Campus }}
 							</font></td>
-							<td><font color='pink'> 
+							<td><font color='pink'>
 								{{ lugar.Aula }}
+							
 						{% endif %}
 					{% endfor %}
 				</font></td>
-	            <td><font color='pink'> Lista
+	            <td><font color='pink'>
 	            	{% for SerSolicitado in SerSolicitados %}
-						{% if SerSolicitado.idSolicitudes == solicitud.Id %}
+						{% if SerSolicitados.IdSolicitudes == solicitud.Id %}
 							{% for servicio in servicios %}
-								{% if servicio.Id == SerSolicitado.IdServicio %}
+								{% if servicio.Id == SerSolicitado.IdServicio %
 									{{ servicio.NombreServicio }}
 									</br>
 								{% endif %}
-							{% endfor %} 
+							{% endfor %}
 						{% endif %}
 					{% endfor %}
 	            </font></td>
 	            
 	            <td><font color='pink'> {{ solicitud.TotalCiva }} </font></td>
 	            <td><font color='pink'> {{ solicitud.TotalSiva }} </font></td>
-	           
+	           #}
 	            <td><font color='pink'>
-	            	<a href="{{ 
-						   path('formulario_addf') 
-						  }}">Add</a>
+	            	<a href="#">Add</a>
 	            	<a href="#">Edit</a>
 	            	<a href="#">View</a>
 	            	<a href="#">Delete</a>
@@ -79,6 +77,6 @@
             <td><font color='white'>Listado de solicitudes:</font></td>
             <td><font color='white'>Total c/iva:</font></td>
             <td><font color='white'>Total s/iva:</font></td>
-            <td><font color='white'>Acciones:</font></td>
+            <td><font color='white'>Total s/iva:</font></td>
         </tr>
 </table>
