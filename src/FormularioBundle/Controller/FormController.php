@@ -5,17 +5,15 @@ namespace FormularioBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
 
+
 class FormController extends Controller
 {
-    public function indexAction()
+    public function indexfAction()
         {
             $em = $this->getDoctrine()->getMAnager();
-
+ 
             $servicios = $em->getRepository('FormularioBundle:Servicios')->findAll();
-           /* $res = '<h1>hola</h1>';
-            return new Response ($res);*/
-           /*return $this->render('FormularioBundle::index.html.twig', array('servicios'=> $servicios));*/
-           return $this->render('FormularioBundle:Form:indexF.html.twig');
+           return $this->render('@Formulario/Form/indexf.html.twig', array('servicios'=> $servicios));
         }
 
     public function viewAction ()

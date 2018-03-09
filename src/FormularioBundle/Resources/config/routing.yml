@@ -1,26 +1,26 @@
 formulario_homepage:
-    path:     /
-    defaults: { _controller: FormularioBundle:Default:index }
+    path:     /Form
+    defaults: { _controller: FormularioBundle:Default:homef }
 
 formulario_index:
-    path:     /form/index
-    defaults: { _controller: FormularioBundle:Form:index }
+    path:     /form/indexf
+    defaults: { _controller: FormularioBundle:Form:indexf }
 
 formulario_add:
-    path:     /formulario/add
-    defaults: {_controler: FormularioBundle:Form:add}
+    path:     /formulario/addf
+    defaults: {_controler: FormularioBundle:Form:addf}
 
 formulario_edit:
-    path:     /formulario/edit/{id}
-    defaults: {_controler: FormularioBundle:Form:edit}
+    path:     /formulario/editf/{id}
+    defaults: {_controler: FormularioBundle:Form:editf}
 
 formulario_view:
-    path:     /formulario/view
-    defaults: {_controler: FormularioBundle:Form:view}
+    path:     /formulario/viewf
+    defaults: {_controler: FormularioBundle:Form:viewf}
 
 formulario_delete:
-    path:     /formulario/delete
-    defaults: {_controler: FormularioBundle:Form:delete}
+    path:     /formulario/deletef
+    defaults: {_controler: FormularioBundle:Form:deletef}
 
 #EJEMPLOS
 
