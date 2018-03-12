@@ -1,4 +1,7 @@
-<h1><font style="background-color:#4A235A;" color='white'>Servicios solicitados: </font></h1></br>
+{% extends 'layout.html.twig' %}
+{% block body %}
+
+<h1>Servicios solicitados:</h1></br>
 <table width="90%" border="1px">
         <tr bgcolor=#4A235A>
             <td><font color='white'>Id:</font></td>
@@ -29,4 +32,6 @@
             <td><font color='white'>Num. Servicio:</font></td>
             <td><font color='white'>Importe</font></td>
         </tr>
-</table>
+</table></br>
+<a href="{{ path('formulario_index') }}"><h1>INDEX</h1></a>
+{% endblock %}

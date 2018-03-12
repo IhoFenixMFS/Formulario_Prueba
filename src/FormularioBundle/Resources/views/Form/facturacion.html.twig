@@ -1,3 +1,5 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
 
 <h1><font style="background-color:#4A235A;" color='white'>Datos de facturacion: </font></h1></br>
 <table width="90%" border="1px">
@@ -40,3 +42,5 @@
             <td><font color='white'>Contacto:</font></td>
         </tr>
 </table>
+<a href="{{ path('formulario_index') }}"><h1>INDEX</h1></a>
+{% endblock %}

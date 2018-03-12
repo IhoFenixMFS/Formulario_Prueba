@@ -1,0 +1,102 @@
+{% extends 'layout.html.twig' %}
+{% block body %}
+	{{ parent() }}
+	<div class="container">
+		<div class="col-md-12">
+			<h2 class="padding-none">Índice</h2>
+		</div>
+		<div class="table-responsive">
+		<table class="table">
+			<thread>
+				<tr>
+					<th scope="col">Id solicitud:</th>
+		            <th scope="col">Solicitante:</th>
+		            <th scope="col">CIF/NIF Factura:</th>
+		            <th scope="col">Empresa:</th>
+		            <th scope="col">Campus:</th>
+		            <th scope="col">Aula:</th>
+		            <th scope="col">Listado de servicios:</th>
+		            <th scope="col">Total c/iva:</th>
+		            <th scope="col">Total s/iva:</th>
+		            <th scope="col">Acciones:</th>
+				</tr>
+			</thread>
+			<tbody>
+				{%  for solicitud in solicitudes %}
+				<tr>
+					<td>{{ solicitud.id }}</td>
+					<td>
+						{% for solicitante in solicitantes %}
+							{% if solicitante.id == solicitud.idSolicitante %}
+								{{ solicitante.nombreSolicitante }}
+							{% endif %}
+						{% endfor %}
+					</td>
+					<td>{{ solicitud.CIFNIFFactura }}</td>
+					<td>
+						{% for facturacion in facturaciones %}
+							{% if facturacion.CIFNIF == solicitud.CIFNIFFactura %}
+								{{ facturacion.NombreEmpresa }}
+							{% endif %}
+						{% endfor %}
+					</td>
+					<td>
+						{% for lugar in lugares %}
+							{% if lugar.id == solicitud.IdLugar %}
+									{{ lugar.Campus }}
+								</td>
+								<td> 
+									{{ lugar.Aula }}
+							{% endif %}
+						{% endfor %}
+					</td>
+					<td>
+						{% for serSolicitado in serSolicitados %}
+							{% if serSolicitado.idSolicitudes == solicitud.Id %}
+								{% for servicio in servicios %}
+									{% if servicio.Id == serSolicitado.IdServicio %}
+										{{ servicio.NombreServicio }}
+										</br>
+									{% endif %}
+								{% endfor %} 
+							{% endif %}
+						{% endfor %}
+					</td>
+					<td>{{ solicitud.TotalCiva }}</td>
+					<td>{{ solicitud.TotalSiva }}</td>
+					<td class="actions">
+						<a href="{{ path('formulario_add') }}" class="btn btn-danger">Add</a>
+		            	<a href="{{ path('formulario_edit') }}" class="btn btn-danger">Edit</a>
+		            	<a href="{{ path('formulario_view') }}" class="btn btn-danger">View</a>
+		            	<a href="{{ path('formulario_delete') }}" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+				{% endfor %}
+				<tr>
+					<th scope="col">Id solicitud:</th>
+		            <th scope="col">Solicitante:</th>
+		            <th scope="col">CIF/NIF Factura:</th>
+		            <th scope="col">Empresa:</th>
+		            <th scope="col">Campus:</th>
+		            <th scope="col">Aula:</th>
+		            <th scope="col">Listado de servicios:</th>
+		            <th scope="col">Total c/iva:</th>
+		            <th scope="col">Total s/iva:</th>
+		            <th scope="col">Acciones:</th>
+				</tr>
+			</tbody>
+		</table>
+		</div>
+		<div class="col-md-12">
+			<a href="{{ path('formulario_tablas') }}" class="btn btn-danger">TABLAS</a> 
+			<a href="{{ path('formulario_tablaMezcla') }}" class="btn btn-danger">MEZCLA</a> 
+			<a href="{{ path('formulario_tablaFacturacion') }}" class="btn btn-danger">FACTURACIÓN</a> 
+			<a href="{{ path('formulario_tablaLugares') }}" class="btn btn-danger">LUGARES</a> 
+			<a href="{{ path('formulario_tablaServicios') }}" class="btn btn-danger">SERVICIOS</a> 
+			<a href="{{ path('formulario_tablaServiciosSolicitados') }}" class="btn btn-danger">SERVICIOS SOLICITADOS</a> 
+			<a href="{{ path('formulario_tablaSolicitante') }}" class="btn btn-danger">SOLICITANTE</a> 
+			<a href="{{ path('formulario_tablaSolicitudes') }}" class="btn btn-danger">SOLICITUDES</a> 
+		</div>
+	</div>		
+	
+{% endblock %}

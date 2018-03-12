@@ -1,4 +1,6 @@
-<h2> Mezcla: </h2>
+{% extends 'layout.html.twig' %}
+{% block body %}
+<h1> Mezcla: </h1>
 
 <table width="90%" border="">
         <tr BGCOLOR=#4A235A>
@@ -11,7 +13,6 @@
             <td><font color='white'>Listado de servicios:</font></td>
             <td><font color='white'>Total c/iva:</font></td>
             <td><font color='white'>Total s/iva:</font></td>
-            <td><font color='white'>Acciones:</font></td>
         </tr>
         {%  for solicitud in solicitudes %}
 			<tr BGCOLOR=#000000>
@@ -43,10 +44,10 @@
 					{% endfor %}
 				</font></td>
 	            <td><font color='pink'> Lista
-	            	{% for SerSolicitado in SerSolicitados %}
-						{% if SerSolicitado.idSolicitudes == solicitud.Id %}
+	            	{% for serSolicitado in serSolicitados %}
+						{% if serSolicitado.idSolicitudes == solicitud.Id %}
 							{% for servicio in servicios %}
-								{% if servicio.Id == SerSolicitado.IdServicio %}
+								{% if servicio.Id == serSolicitado.IdServicio %}
 									{{ servicio.NombreServicio }}
 									</br>
 								{% endif %}
@@ -55,17 +56,9 @@
 					{% endfor %}
 	            </font></td>
 	            
-	            <td><font color='pink'> {{ solicitud.TotalCiva }} </font></td>
-	            <td><font color='pink'> {{ solicitud.TotalSiva }} </font></td>
-	           
-	            <td><font color='pink'>
-	            	<a href="{{ 
-						   path('formulario_addf') 
-						  }}">Add</a>
-	            	<a href="#">Edit</a>
-	            	<a href="#">View</a>
-	            	<a href="#">Delete</a>
-	            </font></td>
+	            <td><font color='pink'> {{ solicitud.TotalCiva }}€ </font></td>
+	            <td><font color='pink'> {{ solicitud.TotalSiva }}€ </font></td>
+
 	        </tr>
     	{% endfor %} 
         
@@ -79,6 +72,9 @@
             <td><font color='white'>Listado de solicitudes:</font></td>
             <td><font color='white'>Total c/iva:</font></td>
             <td><font color='white'>Total s/iva:</font></td>
-            <td><font color='white'>Acciones:</font></td>
         </tr>
-</table>
+</table></br>
+
+<a href="{{ path('formulario_index') }}"><h2>INDEX</h2></a>
+
+{% endblock %}
