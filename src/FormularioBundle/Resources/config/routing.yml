@@ -20,32 +20,6 @@ formulario_deletef:
 
 #TABLAS
 
-formulario_facturacion:
-    path:     /form/facturacion
-    defaults: {_controller: FormularioBundle:Form:facturacion }
-
-formulario_lugares:
-    path:     /form/lugares
-    defaults: {_controller: FormularioBundle:Form:lugares }
-
-formulario_serSolicitados:
-    path:     /form/serSolicitados
-    defaults: {_controller: FormularioBundle:Form:serSolicitados }
-
-formulario_servicios:
-    path:     /form/servicios
-    defaults: {_controller: FormularioBundle:Form:servicios }
-
-formulario_solicitante:
-    path:     /form/solicitante
-    defaults: {_controller: FormularioBundle:Form:solicitante }
-
-formulario_solicitudes:
-    path:     /form/solicitudes
-    defaults: {_controller: FormularioBundle:Form:solicitudes }
-
-#EJEMPLOS
-
 formulario_tablas:
     path:     /form/tablas
     defaults: { _controller: FormularioBundle:Form:tablas }
@@ -77,6 +51,8 @@ formulario_tablaSolicitante:
 formulario_tablaSolicitudes:
     path:     /form/tsolicitudes
     defaults: { _controller: FormularioBundle:Form:tablaSolicitudes }
+
+#EJEMPLOS
 
 formulario_ejemplo:
     path:     /form/ejemplo/{page}

@@ -1,1 +1,26 @@
-view
+<h1><font style="background-color:#4A235A;" color='white'>Serrvicios disponibles: </font></h1></br>
+<table width="90%" border="1px">
+        <tr bgcolor=#4A235A>
+            <td><font color='white'>Id:</font></td>
+            <td><font color='white'>Servicio:</font></td>
+            <td><font color='white'>Importe:</font></td>
+        </tr>
+        {%  for servivio in servicios %}
+        	<tr bgcolor=#000000>
+	            <td><font color='pink'>
+	                {{ servivio.id }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ servivio.nombreServicio }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ servivio.importeServicio }}
+	            </font></td>
+	        </tr>
+        {% endfor %} 
+        <tr bgcolor=#4A235A>
+            <td><font color='white'>Id:</font></td>
+            <td><font color='white'>Servicio:</font></td>
+            <td><font color='white'>Importe:</font></td>
+        </tr>
+</table>

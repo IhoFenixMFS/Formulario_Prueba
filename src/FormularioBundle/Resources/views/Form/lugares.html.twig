@@ -1,1 +1,26 @@
-delete
+<h1><font style="background-color:#4A235A;" color='white'>Lugares disponibles: </font></h1></br>
+<table width="90%" border="1px">
+        <tr bgcolor=#4A235A>
+            <td><font color='white'>Id:</font></td>
+            <td><font color='white'>Campus:</font></td>
+            <td><font color='white'>Aula:</font></td>
+        </tr>
+        {%  for lugar in lugares %}
+        	<tr bgcolor=#000000>
+	            <td><font color='pink'>
+	                {{ lugar.id }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ lugar.campus }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ lugar.aula }}
+	            </font></td>
+	        </tr>
+        {% endfor %} 
+        <tr bgcolor=#4A235A>
+            <td><font color='white'>Id:</font></td>
+            <td><font color='white'>Campus:</font></td>
+            <td><font color='white'>Aula:</font></td>
+        </tr>
+</table>

@@ -1,1 +1,42 @@
-edit
+<h1><font style="background-color:#4A235A;" color='white'>Solicitudes realizadas: </font></h1></br>
+
+<table width="90%" border="">
+        <tr BGCOLOR=#4A235A>
+            <td><font color='white'>Id:</font></td>
+            <td><font color='white'>Num. solicitante:</font></td>
+            <td><font color='white'>CIF/NIF Factura:</font></td>
+            <td><font color='white'>Id lugar:</font></td>
+            <td><font color='white'>Total c/iva:</font></td>
+            <td><font color='white'>Total s/iva:</font></td>
+        </tr>
+        {%  for solicitud in solicitudes %}
+			<tr bgcolor=#000000>
+	            <td><font color='pink'>
+	                {{ solicitud.id }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ solicitud.idSolicitante }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ solicitud.CIFNIFFactura }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ solicitud.idLugar }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ solicitud.totalCiva }}
+	            </font></td>
+	            <td><font color='pink'>
+	                {{ solicitud.totalSiva }}
+	        </tr>
+    	{% endfor %} 
+        
+        <tr BGCOLOR=#4A235A>
+            <td><font color='white'>Id:</font></td>
+            <td><font color='white'>Num. solicitante:</font></td>
+            <td><font color='white'>CIF/NIF Factura:</font></td>
+            <td><font color='white'>Id lugar:</font></td>
+            <td><font color='white'>Total c/iva:</font></td>
+            <td><font color='white'>Total s/iva:</font></td>
+        </tr>
+</table>
