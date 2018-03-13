@@ -15,11 +15,11 @@ formulario_add:
     defaults: { _controller: FormularioBundle:Form:add }
 
 formulario_delete:
-    path:     /form/delete
+    path:     /form/delete/{id}
     defaults: {_controller: FormularioBundle:Form:delete}
 
 formulario_edit:
-    path:   /form/edit
+    path:   /form/edit/{id}
     defaults: { _controller: FormularioBundle:Form:edit }
 
 #TABLAS

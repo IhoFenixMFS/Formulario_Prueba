@@ -4,6 +4,17 @@ namespace FormularioBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;
+use FormularioBundle\Entity\Solicitudes;
+use FormularioBundle\Entity\Facturacion;
+use FormularioBundle\Entity\Lugares;
+use FormularioBundle\Entity\Servicios;
+use FormularioBundle\Entity\ServiciosSolicitados;
+use FormularioBundle\Entity\Solicitante;
+use Symfony\Component\Form\Form;
+use Symfony\Component\HttpFoundation\Request;
+/*
+use AppBundle\Entity\Task;
+*/
 
 
 class FormController extends Controller
@@ -49,20 +60,52 @@ class FormController extends Controller
         return $this->render('@Formulario/Form/view.html.twig', array('servicios'=> $servicios, 'solicitudes'=> $solicitudes, 'facturaciones'=> $facturaciones, 'lugares'=> $lugares, 'serSolicitados'=> $serSolicitados, 'solicitantes'=> $solicitantes));
       }
 
-    public function addAction()
-      {   
-        $repository = $this->getDoctrine()->getMAnager();
-        $solicitudes = $repository->getRepository('FormularioBundle:Solicitudes')->findAll();
-        $facturaciones = $repository->getRepository('FormularioBundle:Facturacion')->findAll();
-        $lugares = $repository->getRepository('FormularioBundle:Lugares')->findAll();
-        $servicios = $repository->getRepository('FormularioBundle:Servicios')->findAll();
-        $serSolicitados = $repository->getRepository('FormularioBundle:ServiciosSolicitados')->findAll();
-        $solicitantes = $repository->getRepository('FormularioBundle:Solicitante')->findAll(); 
-        
-        return $this->render('@Formulario/Form/add.html.twig', array('servicios'=> $servicios, 'solicitudes'=> $solicitudes, 'facturaciones'=> $facturaciones, 'lugares'=> $lugares, 'serSolicitados'=> $serSolicitados, 'solicitantes'=> $solicitantes));
+    public function newAction(Request $request)
+      {
+          // creates a task and gives it some dummy data for this example
+          $task = new Task();
+          $task->setTask('Write a blog post');
+          $task->setDueDate(new \DateTime('tomorrow'));
+
+          $form = $this->createFormBuilder($task)
+              ->add('task', TextType::class)
+              ->add('dueDate', DateType::class)
+              ->add('save', SubmitType::class, array('label' => 'Create Task'))
+              ->getForm();
+
+          return $this->render('default/new.html.twig', array(
+              'form' => $form->createView(),
+          ));
       }
 
-    public function deleteAction ()
+    public function addAction()
+      {   
+      
+        $solicitud = new Solicitudes();
+        /*
+            $facturacion = new Facturacion();
+            $lugares = new Lugares();
+            $servicios = new Servicios();
+            $servSolicitados = new ServiciosSolicitados();
+            $solicitante = new Solicitante();
+        */
+
+        $form = $this->createFormBuilder($solicitud);
+
+        /**
+            EJEMPLO DE LA DOCUMENTACIÓN
+            $form = $this->createFormBuilder($task)
+              ->add('task', TextType::class)
+              ->add('dueDate', DateType::class)
+              ->add('save', SubmitType::class, array('label' => 'Create Task'))
+              ->getForm();
+        */
+
+
+        return $this->render('@Formulario/Form/add.html.twig'/*, array('form'=> $form->createView())*/); //Revisar por qué falla el createView()
+      }
+
+    public function deleteAction ($id)
       {   
         $repository = $this->getDoctrine()->getMAnager();
         $solicitudes = $repository->getRepository('FormularioBundle:Solicitudes')->findAll();
@@ -75,7 +118,7 @@ class FormController extends Controller
         return $this->render('@Formulario/Form/delete.html.twig', array('servicios'=> $servicios, 'solicitudes'=> $solicitudes, 'facturaciones'=> $facturaciones, 'lugares'=> $lugares, 'serSolicitados'=> $serSolicitados, 'solicitantes'=> $solicitantes));
       }
 
-    public function editAction()
+    public function editAction($id)
       {   
         $repository = $this->getDoctrine()->getMAnager();
         $solicitudes = $repository->getRepository('FormularioBundle:Solicitudes')->findAll();
