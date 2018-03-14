@@ -7,48 +7,53 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use FormularioBundle\Entity\Solicitudes;
 
+use AppBundle\Entity\Post;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+
 class SolicitudesType extends AbstractType
 {
     /**
      * {@inheritdoc}
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
-        $builder
-            ->add('idSolicitante')
-            ->add('cIFNIFFactura')
-            ->add('idLugar')
-            ->add('totalCiva')
-            ->add('totalSiva')
-            ->add('save', 'submit', array('label' => 'Guardar'))
-            ;
-    }
+        {
+            $builder
+                ->add('idSolicitante')
+                ->add('cIFNIFFactura')
+                ->add('idLugar')
+                ->add('totalCiva')
+                ->add('totalSiva')
+                ->add('save', 'submit', array('label' => 'Guardar'))
+                ;
+        }
 
     /**
     * @param OptionsResolverInterface $resolver
     */
     public function setDefaultOptions(OptionsResolverInterface $resolver)
-    {
-        $resolver->setDefaults(array('data_class' => '@FormularioBundle\Entity\Solicitudes'))
-    }
+        {
+            $resolver->setDefaults(array('data_class' => '@FormularioBundle\Entity\Solicitudes'));
+        }
 
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
-    {
-        $resolver->setDefaults(array(
-            'data_class' => 'FormularioBundle\Entity\Solicitudes'
-        ));
-    }
+        {
+            $resolver->setDefaults(array(
+                'data_class' => 'FormularioBundle\Entity\Solicitudes'
+            ));
+        }
 
     /**
      * {@inheritdoc}
      */
     public function getBlockPrefix()
-    {
-        return 'formulariobundle_solicitudes';
-    }
+        {
+            return 'formulariobundle_solicitudes';
+        }
 
 
 }

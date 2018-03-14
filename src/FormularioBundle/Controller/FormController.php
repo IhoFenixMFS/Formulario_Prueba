@@ -10,11 +10,18 @@ use FormularioBundle\Entity\Lugares;
 use FormularioBundle\Entity\Servicios;
 use FormularioBundle\Entity\ServiciosSolicitados;
 use FormularioBundle\Entity\Solicitante;
-use Symfony\Component\Form\Form;
+use Symfony\Component\Form\Forms;
 use Symfony\Component\HttpFoundation\Request;
-/*
-use AppBundle\Entity\Task;
-*/
+use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
+
+use FormularioBundle\Form\FacturacionType;
+use FormularioBundle\Form\LugaresType;
+use FormularioBundle\Form\ServiciosSolicitadosType;
+use FormularioBundle\Form\ServiciosType;
+use FormularioBundle\Form\SolicitanteType;
+use FormularioBundle\Form\SolicitudesType;
+
+
 
 
 class FormController extends Controller
@@ -60,50 +67,67 @@ class FormController extends Controller
         return $this->render('@Formulario/Form/view.html.twig', array('servicios'=> $servicios, 'solicitudes'=> $solicitudes, 'facturaciones'=> $facturaciones, 'lugares'=> $lugares, 'serSolicitados'=> $serSolicitados, 'solicitantes'=> $solicitantes));
       }
 
-    public function newAction(Request $request)
+    public function formAction(Request $request)
       {
-          // creates a task and gives it some dummy data for this example
-          $task = new Task();
-          $task->setTask('Write a blog post');
-          $task->setDueDate(new \DateTime('tomorrow'));
-
-          $form = $this->createFormBuilder($task)
-              ->add('task', TextType::class)
-              ->add('dueDate', DateType::class)
-              ->add('save', SubmitType::class, array('label' => 'Create Task'))
-              ->getForm();
-
-          return $this->render('default/new.html.twig', array(
-              'form' => $form->createView(),
-          ));
+        $curso = new Curso();
+        $form = $this->createForm(CursoType::class, $curso);
+         
+        return $this->render('AppBundle:Pruebas:form.html.twig', array('form' => $form->createView()));
       }
 
     public function addAction()
-      {   
-      
-        $solicitud = new Solicitudes();
-        /*
-            $facturacion = new Facturacion();
-            $lugares = new Lugares();
-            $servicios = new Servicios();
-            $servSolicitados = new ServiciosSolicitados();
-            $solicitante = new Solicitante();
+      {
+      /*
+            https://symfony.com/doc/3.4/form/direct_submit.html#form-call-submit-directly
+            If you need more control over exactly when your form is submitted or which data is passed to it, you can use the submit() for this. Read more about it Calling Form::submit() manually.
         */
+          $solicitudes = new Solicitudes();
 
-        $form = $this->createFormBuilder($solicitud);
+          $form = $this->createForm(SolicitudesType::class, $solicitudes);
 
-        /**
-            EJEMPLO DE LA DOCUMENTACIÓN
-            $form = $this->createFormBuilder($task)
-              ->add('task', TextType::class)
-              ->add('dueDate', DateType::class)
-              ->add('save', SubmitType::class, array('label' => 'Create Task'))
-              ->getForm();
-        */
-
-
-        return $this->render('@Formulario/Form/add.html.twig'/*, array('form'=> $form->createView())*/); //Revisar por qué falla el createView()
+          return $this->render('AppBundle:Pruebas:add.html.twig', array('form' => $form->createView()));
       }
+
+/*
+    public function addAction()
+      {   
+        //1
+        while(true)
+          {
+              $formFactory = Forms::createFormFactory();
+
+              $form = $formFactory->createBuilder() ->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType') ->add('lastName', 'Symfony\Component\Form\Extension\Core\Type\TextType') ->add('age', 'Symfony\Component\Form\Extension\Core\Type\IntegerType') ->add('gender', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array( 'choices' => array('Male' => 'm', 'Female' => 'f'), )) ->getForm();
+              
+              $form->handleRequest($request);
+
+              $formFactory = Forms::createFormFactoryBuilder()
+                            ->addExtension(new HttpFoundationExtension())
+                            ->getFormFactory();
+              $form->handleRequest($request);
+              return $this->render('AppBundle:Pruebas:add.html.twig', array('form' => $form->createView()));
+          }
+        //2
+        while(true)
+          {
+              $solicitud = new Solicitudes();
+              $facturacion = new Facturacion();
+              $lugares = new Lugares();
+              $servicios = new Servicios();
+              $servSolicitados = new ServiciosSolicitados();
+              $solicitante = new Solicitante();
+
+              $formFactory = Forms::createFormFactory();
+              $form->handleRequest($request);
+              
+              $formFactory = Forms::createFormFactoryBuilder()
+                            ->addExtension(new HttpFoundationExtension())
+                            ->getFormFactory();
+              $form->handleRequest($request);
+          }
+        
+        return $this->render('AppBundle:Pruebas:add.html.twig', array('form' => $form->createView()));
+      }
+*/
 
     public function deleteAction ($id)
       {   

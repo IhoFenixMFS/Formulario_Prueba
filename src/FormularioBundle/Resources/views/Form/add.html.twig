@@ -1,2 +1,9 @@
+{# añade esto al principio de tu plantilla #}
+{% form_theme form 'bootstrap_4_layout.html.twig' %}
+
 <h1>ADD</h1>
+
+{{form_start(form, {'action':'', 'method':'POST'})}}
+{{form_end(form)}}
+
 <a href="{{ path('formulario_index') }}">Index</a>

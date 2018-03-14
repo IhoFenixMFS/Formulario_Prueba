@@ -63,9 +63,9 @@ class Solicitudes
      * @return int
      */
     public function getId()
-    {
-        return $this->id;
-    }
+        {
+            return $this->id;
+        }
 
     /**
      * Set idSolicitante
@@ -75,11 +75,11 @@ class Solicitudes
      * @return Resumen
      */
     public function setIdSolicitante($idSolicitante)
-    {
-        $this->idSolicitante = $idSolicitante;
+        {
+            $this->idSolicitante = $idSolicitante;
 
-        return $this;
-    }
+            return $this;
+        }
 
     /**
      * Get idSolicitante
@@ -87,9 +87,9 @@ class Solicitudes
      * @return int
      */
     public function getIdSolicitante()
-    {
-        return $this->idSolicitante;
-    }
+        {
+            return $this->idSolicitante;
+        }
 
     /**
      * Set cIFNIFFactura
@@ -99,11 +99,11 @@ class Solicitudes
      * @return Resumen
      */
     public function setCIFNIFFactura($cIFNIFFactura)
-    {
-        $this->cIFNIFFactura = $cIFNIFFactura;
+        {
+            $this->cIFNIFFactura = $cIFNIFFactura;
 
-        return $this;
-    }
+            return $this;
+        }
 
     /**
      * Get cIFNIFFactura
@@ -111,9 +111,9 @@ class Solicitudes
      * @return string
      */
     public function getCIFNIFFactura()
-    {
-        return $this->cIFNIFFactura;
-    }
+        {
+            return $this->cIFNIFFactura;
+        }
 
     /**
      * Set idLugar
@@ -123,11 +123,11 @@ class Solicitudes
      * @return Resumen
      */
     public function setIdLugar($idLugar)
-    {
-        $this->idLugar = $idLugar;
+        {
+            $this->idLugar = $idLugar;
 
-        return $this;
-    }
+            return $this;
+        }
 
     /**
      * Get idLugar
@@ -135,9 +135,9 @@ class Solicitudes
      * @return int
      */
     public function getIdLugar()
-    {
-        return $this->idLugar;
-    }
+        {
+            return $this->idLugar;
+        }
 
     /**
      * Set totalCiva
@@ -147,11 +147,11 @@ class Solicitudes
      * @return Resumen
      */
     public function setTotalCiva($totalCiva)
-    {
-        $this->totalCiva = $totalCiva;
+        {
+            $this->totalCiva = $totalCiva;
 
-        return $this;
-    }
+            return $this;
+        }
 
     /**
      * Get totalCiva
@@ -159,9 +159,9 @@ class Solicitudes
      * @return float
      */
     public function getTotalCiva()
-    {
-        return $this->totalCiva;
-    }
+        {
+            return $this->totalCiva;
+        }
 
     /**
      * Set totalSiva
@@ -171,11 +171,11 @@ class Solicitudes
      * @return Resumen
      */
     public function setTotalSiva($totalSiva)
-    {
-        $this->totalSiva = $totalSiva;
+        {
+            $this->totalSiva = $totalSiva;
 
-        return $this;
-    }
+            return $this;
+        }
 
     /**
      * Get totalSiva
@@ -183,8 +183,8 @@ class Solicitudes
      * @return float
      */
     public function getTotalSiva()
-    {
-        return $this->totalSiva;
-    }
+        {
+            return $this->totalSiva;
+        }
 }
 
