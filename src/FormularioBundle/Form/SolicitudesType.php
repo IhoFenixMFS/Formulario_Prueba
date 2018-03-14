@@ -16,6 +16,8 @@ class SolicitudesType extends AbstractType
 {
     /**
      * {@inheritdoc}
+     * @param FormBuilderInterface $builder
+     * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
         {
@@ -25,8 +27,11 @@ class SolicitudesType extends AbstractType
                 ->add('idLugar')
                 ->add('totalCiva')
                 ->add('totalSiva')
-                ->add('save', 'submit', array('label' => 'Guardar'))
+                /*->add('Guardar', SubmitType::class)*/
                 ;
+            /*
+                http://symfony.com/doc/2.3/best_practices/forms.html
+            */
         }
 
     /**

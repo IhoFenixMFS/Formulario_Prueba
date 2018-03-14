@@ -75,7 +75,7 @@ class FormController extends Controller
         return $this->render('AppBundle:Pruebas:form.html.twig', array('form' => $form->createView()));
       }
 
-    public function addAction()
+    public function addAction(Request $request)
       {
       /*
             https://symfony.com/doc/3.4/form/direct_submit.html#form-call-submit-directly
@@ -97,12 +97,13 @@ class FormController extends Controller
               $formFactory = Forms::createFormFactory();
 
               $form = $formFactory->createBuilder() ->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType') ->add('lastName', 'Symfony\Component\Form\Extension\Core\Type\TextType') ->add('age', 'Symfony\Component\Form\Extension\Core\Type\IntegerType') ->add('gender', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array( 'choices' => array('Male' => 'm', 'Female' => 'f'), )) ->getForm();
-              
-              $form->handleRequest($request);
 
               $formFactory = Forms::createFormFactoryBuilder()
                             ->addExtension(new HttpFoundationExtension())
                             ->getFormFactory();
+
+              $form->handleRequest($request);
+              
               $form->handleRequest($request);
               return $this->render('AppBundle:Pruebas:add.html.twig', array('form' => $form->createView()));
           }
