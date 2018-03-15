@@ -12,3 +12,11 @@ a {
 	color: white;
 	background: red;	
 }
+form {
+	background: red;
+	color: white;
+}
+form-group {
+	background-color: red;
+	color: white;
+}

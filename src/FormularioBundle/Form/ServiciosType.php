@@ -5,6 +5,9 @@ namespace FormularioBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class ServiciosType extends AbstractType
 {
@@ -14,8 +17,8 @@ class ServiciosType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombreServicio')
-            ->add('importeServicio')
+            ->add('nombreServicio', TextareaType::class)
+            ->add('importeServicio', MoneyType::class)
             ->add('save', 'submit', array('label' => 'Guardar'))
             ;
     }/**

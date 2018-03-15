@@ -5,6 +5,9 @@ namespace FormularioBundle\Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+
 
 class LugaresType extends AbstractType
 {
@@ -14,11 +17,12 @@ class LugaresType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('campus')
-            ->add('aula')
-            ->add('save', 'submit', array('label' => 'Guardar'))
+            ->add('campus', TextareaType::class)
+            ->add('aula', TextareaType::class)
+                ->add('save', SubmitType::class, array('label' => 'Añadir lugar'))
             ;
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
@@ -27,7 +31,6 @@ class LugaresType extends AbstractType
             'data_class' => 'FormularioBundle\Entity\Lugares'
         ));
     }
-
     /**
      * {@inheritdoc}
      */
@@ -35,6 +38,4 @@ class LugaresType extends AbstractType
     {
         return 'formulariobundle_lugares';
     }
-
-
 }

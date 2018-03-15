@@ -43,6 +43,13 @@ class Solicitudes
     private $idLugar;
 
     /**
+     * @var string
+     *
+     * @ORM\Column(name="Servicios", type="collection")
+     */
+    private $servicios;
+
+    /**
      * @var float
      *
      * @ORM\Column(name="TotalCiva", type="float")
@@ -137,6 +144,30 @@ class Solicitudes
     public function getIdLugar()
         {
             return $this->idLugar;
+        }
+
+      /**
+     * Set idSolicitante
+     *
+     * @param collection $servicios
+     *
+     * @return Resumen
+     */
+    public function setServicios($servicios)
+        {
+            $this->servicios = $servicios;
+
+            return $this;
+        }
+
+    /**
+    * Get servicios
+    *
+    * @return collection
+    */
+    public function getServicios()
+        {
+            return $this->servicios;
         }
 
     /**

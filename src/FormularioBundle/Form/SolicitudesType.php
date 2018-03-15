@@ -7,51 +7,42 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use FormularioBundle\Entity\Solicitudes;
 
-use AppBundle\Entity\Post;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
-use Symfony\Component\Form\Extension\Core\Type\EmailType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 
 class SolicitudesType extends AbstractType
 {
     /**
      * {@inheritdoc}
-     * @param FormBuilderInterface $builder
-     * @param array $options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
         {
             $builder
-                ->add('idSolicitante')
-                ->add('cIFNIFFactura')
-                ->add('idLugar')
-                ->add('totalCiva')
-                ->add('totalSiva')
-                /*->add('Guardar', SubmitType::class)*/
+                ->add('idSolicitante', IntegerType::class)
+                ->add('cIFNIFFactura', TextareaType::class)
+                ->add('idLugar', ChoiceType::class)
+                ->add('totalCiva', MoneyType::class)
+                ->add('totalSiva', MoneyType::class)
+                ->add('servicios', ChoiceType::class)
+                ->add('save', SubmitType::class, array('label' => 'Aceptar Solicitud'))
                 ;
             /*
-                http://symfony.com/doc/2.3/best_practices/forms.html
+                Doc. formularios:
+                http://symfony.com/doc/3.4/best_practices/forms.html
             */
         }
-
-    /**
-    * @param OptionsResolverInterface $resolver
-    */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
-        {
-            $resolver->setDefaults(array('data_class' => '@FormularioBundle\Entity\Solicitudes'));
-        }
-
     /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
         {
             $resolver->setDefaults(array(
-                'data_class' => 'FormularioBundle\Entity\Solicitudes'
+                'data_class' => Solicitudes::class
             ));
         }
-
     /**
      * {@inheritdoc}
      */
@@ -59,6 +50,4 @@ class SolicitudesType extends AbstractType
         {
             return 'formulariobundle_solicitudes';
         }
-
-
 }

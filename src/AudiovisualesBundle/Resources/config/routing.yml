@@ -1,0 +1,3 @@
+audiovisuales_homepage:
+    path:     /
+    defaults: { _controller: AudiovisualesBundle:Default:index }

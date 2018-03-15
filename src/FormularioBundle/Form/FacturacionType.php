@@ -6,6 +6,13 @@ use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\MoneyType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+
+
 class FacturacionType extends AbstractType
 {
     /**
@@ -14,14 +21,15 @@ class FacturacionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombreEmpresa')
-            ->add('cIFNIF')
-            ->add('tlfEmpresa')
-            ->add('emailEmpresa', 'email')
-            ->add('usrContacto')
-            ->add('save', 'submit', array('label' => 'Guardar'))
+            ->add('nombreEmpresa', TextareaType::class)
+            ->add('cIFNIF', TextareaType::class)
+            ->add('tlfEmpresa', IntegerType::class)
+            ->add('emailEmpresa', EmailType::class)
+            ->add('usrContacto', TextareaType::class)
+            ->add('save', SubmitType::class, array('label' => 'Aceptar Facturación'))
             ;
-    }/**
+    }
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)
@@ -30,7 +38,6 @@ class FacturacionType extends AbstractType
             'data_class' => 'FormularioBundle\Entity\Facturacion'
         ));
     }
-
     /**
      * {@inheritdoc}
      */
@@ -38,6 +45,4 @@ class FacturacionType extends AbstractType
     {
         return 'formulariobundle_facturacion';
     }
-
-
 }

@@ -2,17 +2,20 @@
 
 namespace FormularioBundle\Controller;
 
-use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Response;
 use FormularioBundle\Entity\Solicitudes;
 use FormularioBundle\Entity\Facturacion;
 use FormularioBundle\Entity\Lugares;
 use FormularioBundle\Entity\Servicios;
 use FormularioBundle\Entity\ServiciosSolicitados;
 use FormularioBundle\Entity\Solicitante;
-use Symfony\Component\Form\Forms;
+
+use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Component\Form\Extension\HttpFoundation\HttpFoundationExtension;
+use Symfony\Component\Form\Forms;
 
 use FormularioBundle\Form\FacturacionType;
 use FormularioBundle\Form\LugaresType;
@@ -67,68 +70,14 @@ class FormController extends Controller
         return $this->render('@Formulario/Form/view.html.twig', array('servicios'=> $servicios, 'solicitudes'=> $solicitudes, 'facturaciones'=> $facturaciones, 'lugares'=> $lugares, 'serSolicitados'=> $serSolicitados, 'solicitantes'=> $solicitantes));
       }
 
-    public function formAction(Request $request)
-      {
-        $curso = new Curso();
-        $form = $this->createForm(CursoType::class, $curso);
-         
-        return $this->render('AppBundle:Pruebas:form.html.twig', array('form' => $form->createView()));
-      }
-
     public function addAction(Request $request)
       {
-      /*
-            https://symfony.com/doc/3.4/form/direct_submit.html#form-call-submit-directly
-            If you need more control over exactly when your form is submitted or which data is passed to it, you can use the submit() for this. Read more about it Calling Form::submit() manually.
-        */
           $solicitudes = new Solicitudes();
 
           $form = $this->createForm(SolicitudesType::class, $solicitudes);
 
-          return $this->render('AppBundle:Pruebas:add.html.twig', array('form' => $form->createView()));
+         return $this->render('@Formulario/Form/add.html.twig', array('form' => $form->createView()));
       }
-
-/*
-    public function addAction()
-      {   
-        //1
-        while(true)
-          {
-              $formFactory = Forms::createFormFactory();
-
-              $form = $formFactory->createBuilder() ->add('firstName', 'Symfony\Component\Form\Extension\Core\Type\TextType') ->add('lastName', 'Symfony\Component\Form\Extension\Core\Type\TextType') ->add('age', 'Symfony\Component\Form\Extension\Core\Type\IntegerType') ->add('gender', 'Symfony\Component\Form\Extension\Core\Type\ChoiceType', array( 'choices' => array('Male' => 'm', 'Female' => 'f'), )) ->getForm();
-
-              $formFactory = Forms::createFormFactoryBuilder()
-                            ->addExtension(new HttpFoundationExtension())
-                            ->getFormFactory();
-
-              $form->handleRequest($request);
-              
-              $form->handleRequest($request);
-              return $this->render('AppBundle:Pruebas:add.html.twig', array('form' => $form->createView()));
-          }
-        //2
-        while(true)
-          {
-              $solicitud = new Solicitudes();
-              $facturacion = new Facturacion();
-              $lugares = new Lugares();
-              $servicios = new Servicios();
-              $servSolicitados = new ServiciosSolicitados();
-              $solicitante = new Solicitante();
-
-              $formFactory = Forms::createFormFactory();
-              $form->handleRequest($request);
-              
-              $formFactory = Forms::createFormFactoryBuilder()
-                            ->addExtension(new HttpFoundationExtension())
-                            ->getFormFactory();
-              $form->handleRequest($request);
-          }
-        
-        return $this->render('AppBundle:Pruebas:add.html.twig', array('form' => $form->createView()));
-      }
-*/
 
     public function deleteAction ($id)
       {   
