@@ -23,11 +23,39 @@ class AudiovisualesController extends Controller
 	        return $this->render('@Audiovisuales/Default/index.html.twig');
 	    }
 
+    public function doneAction()
+        {
+            return $this->render('@Audiovisuales/Solicitud/done.html.twig');
+        }
+
+    public function errorAction()
+        {
+            return $this->render('@Audiovisuales/Solicitud/error.html.twig');
+        }
+
     public function nuevaAction(Request $request)
     	{
     		$solicitud = new Solicitud();
 
         	$form = $this->createForm(SolicitudType::class, $solicitud);
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) 
+                {
+                    $solicitud = $form->getData();
+
+                    // ... perform some action, such as saving the task to the database
+                    // for example, if Task is a Doctrine entity, save it!
+                    // $entityManager = $this->getDoctrine()->getManager();
+                    // $entityManager->persist($task);
+                    // $entityManager->flush();
+
+                    return $this->redirectToRoute('audiovisuales_done');
+                } /*else 
+                {
+                    return $this->redirectToRoute('audiovisuales_error');
+                }*/
 
 			return $this->render('@Audiovisuales/Solicitud/nueva.html.twig', array('form' => $form->createView()));  
     	}

@@ -5,3 +5,12 @@ audiovisuales_homepage:
 audiovisuales_solicitud_nueva:
     path:     /audiovisuales/solicitudes/nueva
     defaults: { _controller: AudiovisualesBundle:Audiovisuales:nueva }
+
+audiovisuales_error:
+    path:     /audiovisuales/solicitudes/error
+    defaults: { _controller: AudiovisualesBundle:Audiovisuales:error }
+
+audiovisuales_done:
+    path:     /audiovisuales/solicitudes/done
+    defaults: { _controller: AudiovisualesBundle:Audiovisuales:done }
+

@@ -19,63 +19,63 @@ class Solicitud
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      *
      * @ORM\Column(name="NombreSolicitante", type="string", length=50)
      */
-    private $nombreSolicitante;
+    protected $nombreSolicitante;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Apellido1Solicitante", type="string", length=50)
      */
-    private $apellido1Solicitante;
+    protected $apellido1Solicitante;
 
     /**
      * @var string
      *
      * @ORM\Column(name="Apellido2Solicitante", type="string", length=50)
      */
-    private $apellido2Solicitante;
+    protected $apellido2Solicitante;
 
     /**
      * @var int
      *
      * @ORM\Column(name="TelefonoSolicitante", type="integer")
      */
-    private $telefonoSolicitante;
+    protected $telefonoSolicitante;
 
     /**
      * @var string
      *
      * @ORM\Column(name="EmailSolicitante", type="string", length=50)
      */
-    private $emailSolicitante;
+    protected $emailSolicitante;
 
     /**
      * @var string
      *
      * @ORM\Column(name="LugarEvento", type="string", columnDefinition="ENUM('Rectorado: Salón de Actos', 'Móstoles: Aula Magna 1', 'Móstoles: Aula Magna 2', 'Móstoles: Aula Magna 3', 'Móstoles: Salón de Grados 1', 'Móstoles: Salón de Grados 2', 'Alcorcón: Salón de Actos Gestión', 'Alcorcón: Salón de Actos Departamental 2', 'Alcorcón: Salón de Grados 1', 'Alcorcón: Aula Magna 1', 'Fuenlabrada: Salón de Actos', 'Fuenlabrada: Salón de Grados', 'Fuenlabrada: Aula Magna 1', 'Fuenlabrada: Aula Magna 3', 'Madrid: Salón de Actos Biblioteca', 'Madrid: Salón de Actos Manuel Becerra', 'Madrid: Salón de Grados 1')", length=50)
      */
-    private $lugarEvento;
+    protected $lugarEvento;
 
     /**
      * @var array
      *
      * @ORM\Column(name="ServiciosContratados", type="array")
      */
-    private $serviciosContratados;
+    protected $serviciosContratados;
 
     /**
      * @var string
      *
      * @ORM\Column(name="ImporteTotal", type="decimal", precision=6, scale=2)
      */
-    private $importeTotal;
+    protected $importeTotal;
 
 
     /**

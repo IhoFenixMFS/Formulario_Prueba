@@ -19,49 +19,49 @@ class DatosFacturacion
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id;
+    protected $id;
 
      /**
      * @var int
      *
      * @ORM\Column(name="solicitud", type="integer")
      */
-    private $solicitud;
+    protected $solicitud;
 
     /**
      * @var string
      *
      * @ORM\Column(name="empresa", type="string", length=100)
      */
-    private $empresa;
+    protected $empresa;
 
     /**
      * @var string
      *
      * @ORM\Column(name="cif_nif", type="string", length=15)
      */
-    private $cifNif;
+    protected $cifNif;
 
     /**
      * @var int
      *
      * @ORM\Column(name="telefono", type="integer")
      */
-    private $telefono;
+    protected $telefono;
 
     /**
      * @var string
      *
      * @ORM\Column(name="email", type="string", length=50)
      */
-    private $email;
+    protected $email;
 
     /**
      * @var string
      *
      * @ORM\Column(name="contacto", type="string", length=50)
      */
-    private $contacto;
+    protected $contacto;
 
 
     /**
