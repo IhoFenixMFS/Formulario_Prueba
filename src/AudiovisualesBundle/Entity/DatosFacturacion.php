@@ -5,12 +5,12 @@ namespace AudiovisualesBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * DatosFacturacin
+ * DatosFacturacion
  *
- * @ORM\Table(name="datos_facturacin")
- * @ORM\Entity(repositoryClass="AudiovisualesBundle\Repository\DatosFacturacinRepository")
+ * @ORM\Table(name="datos_facturacion")
+ * @ORM\Entity(repositoryClass="AudiovisualesBundle\Repository\DatosFacturacionRepository")
  */
-class DatosFacturacin
+class DatosFacturacion
 {
     /**
      * @var int
@@ -38,7 +38,8 @@ class DatosFacturacin
     /**
      * @var string
      *
-     * @ORM\Column(name="cif_nif", type="string", length=15
+     * @ORM\Column(name="cif_nif", type="string", length=15)
+     */
     private $cifNif;
 
     /**

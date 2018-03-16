@@ -1,3 +1,7 @@
 audiovisuales_homepage:
-    path:     /
+    path:     /audiovisuales/
     defaults: { _controller: AudiovisualesBundle:Default:index }
+
+audiovisuales_solicitud_nueva:
+    path:     /audiovisuales/solicitudes/nueva
+    defaults: { _controller: AudiovisualesBundle:Audiovisuales:nueva }
