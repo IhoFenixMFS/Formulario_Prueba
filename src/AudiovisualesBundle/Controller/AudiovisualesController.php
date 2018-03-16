@@ -20,7 +20,7 @@ class AudiovisualesController extends Controller
 {
     public function indexAction()
 	    {
-	        return $this->render('AudiovisualesBundle:Default:index.html.twig');
+	        return $this->render('@Audiovisuales/Default/index.html.twig');
 	    }
 
     public function nuevaAction(Request $request)

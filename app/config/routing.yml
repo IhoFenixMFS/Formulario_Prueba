@@ -2,10 +2,6 @@ audiovisuales:
     resource: "@AudiovisualesBundle/Resources/config/routing.yml"
     prefix:   /
 
-formulario:
-    resource: "@FormularioBundle/Resources/config/routing.yml"
-    prefix:   /
-
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
