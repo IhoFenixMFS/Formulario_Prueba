@@ -69,11 +69,5 @@ class Categoria
     {
         return $this->name;
     }
-
-    public function getCategoriaById($id)
-    {
-        //no se como hacerlo u.u
-        return $this;
-    }
 }
 

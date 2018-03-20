@@ -36,60 +36,46 @@ class SolicitudType extends AbstractType
             ->add('telefonoSolicitante', TelType::class)
             ->add('emailSolicitante', EmailType::class)
             
-            ->add('lugarEvento', ChoiceType::class, [
-                'choices' => [
-                        new Categoria('Rectorado: Salón de Actos'),
-                        new Categoria('Móstoles: Aula Magna 1'),
-                        new Categoria('Móstoles: Aula Magna 2'),
-                        new Categoria('Móstoles: Aula Magna 3'),
-                        new Categoria('Móstoles: Salón de Grados 1'),
-                        new Categoria('Móstoles: Salón de Grados 2'),
-                        new Categoria('Alcorcón: Salón de Actos Gestión'),
-                        new Categoria('Alcorcón: Salón de Actos Departamental 2'),
-                        new Categoria('Alcorcón: Salón de Grados 1'),
-                        new Categoria('Alcorcón: Aula Magna 1'),
-                        new Categoria('Fuenlabrada: Salón de Actos'),
-                        new Categoria('Fuenlabrada: Salón de Grados'),
-                        new Categoria('Fuenlabrada: Aula Magna 1'),
-                        new Categoria('Fuenlabrada: Aula Magna 3'),
-                        new Categoria('Madrid: Salón de Actos Biblioteca'),
-                        new Categoria('Madrid: Salón de Actos Manuel Becerra'),
-                        new Categoria('Madrid: Salón de Grados 1'),
-                    ],//fin corchete opciones
-                    'choice_label'=>function($categoria){return $categoria->getName();},
-                    /*'choice_attr' => function($categoria) {
-                        return['class'=>'lugarEvento_'.strtolower($categoria->getName())];
-                        },*/
-                ]//fin corchete choiceType
-            )
-            $builder->get('lugarEvento')
-                ->addModelTransformer(new CallbackTransformer(
-                    function ($tagsAsArray) {
-                        // transform the array to a string
-                        return implode(', ', $tagsAsArray);
-                    },
-                    function ($tagsAsString) {
-                        // transform the string back to an array
-                        return explode(', ', $tagsAsString);
-                    }
-                ));
-                
-            $builder
-            ->add('serviciosContratados', ChoiceType::class, [
-                'choices' => [
-                        new Categoria('uno'),
-                        new Categoria('dos'),
-                        new Categoria('tres'),
-                    ],//fin corchete opciones
-                    'choice_label' => function($categoria, $key, $index) {
-                        /** @var Categoria $categoria */
-                        return strtoupper($categoria->getName());
-                    },
-                    'choice_attr' => function($categoria, $key, $index) {
-                        return ['class' => 'serviciosContratados_'.strtolower($categoria->getName())];
-                    },
-                ]//fin corchete choiceType
-            )
+            ->add('lugarEvento', ChoiceType::class,
+                array(
+                    'choices' => array(
+                        'Rectorado' => array(
+                            'Salón de Actos' => 'Rectorado: Salón de Actos',
+                        ),
+                        'Móstoles' => array(
+                            'Aula Magna 1' => 'Móstoles: Aula Magna 1',
+                            'Aula Magna 2' => 'Móstoles: Aula Magna 2',
+                            'Aula Magna 3' => 'Móstoles: Aula Magna 3',
+                            'Salón de Grados 1' => 'Móstoles: Salón de Grados 1',
+                            'Salón de Grados 2' => 'Móstoles: Salón de Grados 2',
+                        ),
+                        'Alcorcón' => array(
+                            'Salón de Actos Gestión' => 'Alcorcón: Salón de Actos Gestión',
+                            'Salón de Actos Departamental 2' => 'Alcorcón: Salón de Actos Departamental 2',
+                            'Salón de Grados 1' => 'Alcorcón: Salón de Grados 1',
+                            'Aula Magna 1' => 'Alcorcón: Aula Magna 1',
+                        ),
+                        'Fuenlabrada' => array(
+                            'Salón de Actos' => 'Fuenlabrada: Salón de Actos',
+                            'Salón de Grados' => 'Fuenlabrada: Salón de Grados',
+                            'Aula Magna 1' => 'Fuenlabrada: Aula Magna 1',
+                            'Aula Magna 3' => 'Fuenlabrada: Aula Magna 3',
+                        ),
+                        'Madrid' => array(
+                            'Salón de Actos Biblioteca' => 'Madrid: Salón de Actos Biblioteca',
+                            'Salón de Actos Manuel Becerra' => 'Madrid: Salón de Actos Manuel Becerra',
+                            'Salón de Grados 1' => 'Madrid: Salón de Grados 1',
+                        ),
+                    ),//fin 'choices'
+                )//fin array de choices
+            )//fin add LugarEvento
+            
+            ->add('serviciosContratados', ChoiceType::class, array(
+                'choices' => array(
+                    'uno'=>'uno',
+                    'dos'=>'dos,'
+                ),
+            ))
             ->add('importeTotal', MoneyType::class)
             ->add('save', SubmitType::class, array('label' => 'Enviar Solicitud'))
             ;

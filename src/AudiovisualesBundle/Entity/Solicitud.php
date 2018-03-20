@@ -57,9 +57,9 @@ class Solicitud
     protected $emailSolicitante;
 
     /**
-     * @var string
+     * @var array
      *
-     * @ORM\Column(name="LugarEvento", type="string", columnDefinition="ENUM('Rectorado: Salón de Actos', 'Móstoles: Aula Magna 1', 'Móstoles: Aula Magna 2', 'Móstoles: Aula Magna 3', 'Móstoles: Salón de Grados 1', 'Móstoles: Salón de Grados 2', 'Alcorcón: Salón de Actos Gestión', 'Alcorcón: Salón de Actos Departamental 2', 'Alcorcón: Salón de Grados 1', 'Alcorcón: Aula Magna 1', 'Fuenlabrada: Salón de Actos', 'Fuenlabrada: Salón de Grados', 'Fuenlabrada: Aula Magna 1', 'Fuenlabrada: Aula Magna 3', 'Madrid: Salón de Actos Biblioteca', 'Madrid: Salón de Actos Manuel Becerra', 'Madrid: Salón de Grados 1')", length=50)
+     * @ORM\Column(name="LugarEvento", type="array")
      */
     protected $lugarEvento;
 
