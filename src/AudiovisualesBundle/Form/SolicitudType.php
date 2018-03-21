@@ -7,6 +7,7 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
 //Importar los tipos
+use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
@@ -16,7 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
-use Symfony\Component\Form\Extension\Core\Type\FormType;
+
 use AudiovisualesBundle\Entity\Categoria;
 
 
@@ -31,11 +32,11 @@ class SolicitudType extends AbstractType
     {
         $builder
             ->add('nombreSolicitante', TextType::class)
-            ->add('apellido1Solicitante', TextType::class)
-            ->add('apellido2Solicitante', TextType::class)
-            ->add('telefonoSolicitante', TelType::class)
-            ->add('emailSolicitante', EmailType::class)
-           /* ->add('lugarEvento', ChoiceType::class,
+                ->add('apellido1Solicitante', TextType::class)
+                ->add('apellido2Solicitante', TextType::class)
+                ->add('telefonoSolicitante', TelType::class)
+                ->add('emailSolicitante', EmailType::class)
+            ->add('lugarEvento', ChoiceType::class,
                 array(
                     'choices' => array(
                        'Rectorado' => array(
@@ -68,16 +69,16 @@ class SolicitudType extends AbstractType
                     ),//fin 'choices'
                 )//fin array de choices
                 )//fin add LugarEvento 
-            */
+            
             ->add('serviciosContratados', ChoiceType::class, array(
-                'choices' => array(
-                    'uno'=>'uno',
-                    'dos'=>'dos',
-                ),
-                ))
+                'choices' => [
+                    'uno' => 1
+                ],
+                'required'  => true,
+                )
+                )
             ->add('importeTotal', MoneyType::class)
-            ->add('save', SubmitType::class, ['label' => 'Enviar Solicitud'])
-            ;
+            ->add('save', SubmitType::class, ['label' => 'Enviar Solicitud']);
     }/**
      * {@inheritdoc}
      */
