@@ -71,13 +71,17 @@ class SolicitudType extends AbstractType
                 )//fin add LugarEvento 
             
             ->add('serviciosContratados', ChoiceType::class, array(
-                //'expanded' => true,
                 'multiple' => true,
                 'choices' => array(
-                    'uno' => 1000,
-                    'dos' => 2000,
-                    'tres' => 3000,
+                    'Sistema de Audio y/o Proyección' => 'Sistema de Audio y/o Proyección',
+                    'Grabación y/o Streaming' => 'Grabación y/o Streaming',
+                    'Traducción simultánea' => 'Traducción simultánea',
+                    'Sistema de audio para prensa externa' => 'Sistema de audio para prensa externa',
+                    'Servicio Técnico previo al evento' => 'Servicio Técnico previo al evento',
+                    'Video conferencia' => 'Video conferencia',
                 ),
+                'expanded' => true,
+                /*'required' */
                 )
                 )
             ->add('importeTotal', MoneyType::class)
