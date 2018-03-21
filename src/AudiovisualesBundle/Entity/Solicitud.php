@@ -57,9 +57,9 @@ class Solicitud
     protected $emailSolicitante;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="LugarEvento", type="array")
+     * @ORM\Column(name="LugarEvento", type="string", length=50)
      */
     protected $lugarEvento;
 

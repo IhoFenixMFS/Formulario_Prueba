@@ -71,10 +71,13 @@ class SolicitudType extends AbstractType
                 )//fin add LugarEvento 
             
             ->add('serviciosContratados', ChoiceType::class, array(
-                'choices' => [
-                    'uno' => 1
-                ],
-                'required'  => true,
+                //'expanded' => true,
+                'multiple' => true,
+                'choices' => array(
+                    'uno' => 1000,
+                    'dos' => 2000,
+                    'tres' => 3000,
+                ),
                 )
                 )
             ->add('importeTotal', MoneyType::class)
