@@ -13,7 +13,14 @@ class DatosFacturacionType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-        $builder->add('solicitud')->add('empresa')->add('cifNif')->add('telefono')->add('email')->add('contacto');
+        $builder
+            ->add('solicitud')
+            ->add('empresa')
+            ->add('cifNif')
+            ->add('telefono')
+            ->add('email')
+            ->add('contacto')
+            ;
     }/**
      * {@inheritdoc}
      */

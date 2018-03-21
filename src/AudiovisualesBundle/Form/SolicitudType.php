@@ -35,11 +35,10 @@ class SolicitudType extends AbstractType
             ->add('apellido2Solicitante', TextType::class)
             ->add('telefonoSolicitante', TelType::class)
             ->add('emailSolicitante', EmailType::class)
-            
-            ->add('lugarEvento', ChoiceType::class,
+           /* ->add('lugarEvento', ChoiceType::class,
                 array(
                     'choices' => array(
-                        'Rectorado' => array(
+                       'Rectorado' => array(
                             'Salón de Actos' => 'Rectorado: Salón de Actos',
                         ),
                         'Móstoles' => array(
@@ -68,16 +67,16 @@ class SolicitudType extends AbstractType
                         ),
                     ),//fin 'choices'
                 )//fin array de choices
-            )//fin add LugarEvento
-            
+                )//fin add LugarEvento 
+            */
             ->add('serviciosContratados', ChoiceType::class, array(
                 'choices' => array(
                     'uno'=>'uno',
-                    'dos'=>'dos,'
+                    'dos'=>'dos',
                 ),
-            ))
+                ))
             ->add('importeTotal', MoneyType::class)
-            ->add('save', SubmitType::class, array('label' => 'Enviar Solicitud'))
+            ->add('save', SubmitType::class, ['label' => 'Enviar Solicitud'])
             ;
     }/**
      * {@inheritdoc}

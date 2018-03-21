@@ -48,16 +48,12 @@ class AudiovisualesController extends Controller
                     // ... perform some action, such as saving the task to the database
                     // for example, if Task is a Doctrine entity, save it!
                      $entityManager = $this->getDoctrine()->getManager();
-                     //$solicitud->setLugarEvento()->(string)$solicitud->getLugarEvento();
                      $entityManager->persist($solicitud);
                      $entityManager->flush();
 
-                    return $this->redirectToRoute('audiovisuales_done');
-                } /*else 
-                {
-                    return $this->redirectToRoute('audiovisuales_error');
-                }*/
-
+                    return $this->redirectToRoute('audiovisuales_done');   
+            }
+            
 			return $this->render('@Audiovisuales/Solicitud/nueva.html.twig', array('form' => $form->createView()));  
     	}
 }
