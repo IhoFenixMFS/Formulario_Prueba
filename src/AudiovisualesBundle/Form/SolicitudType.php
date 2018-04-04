@@ -31,61 +31,62 @@ class SolicitudType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            /*->add('nombreSolicitante', TextType::class)
-                ->add('apellido1Solicitante', TextType::class)
-                ->add('apellido2Solicitante', TextType::class)
-                ->add('telefonoSolicitante', TelType::class)
-                ->add('emailSolicitante', EmailType::class)*/
+            ->add('nombreSolicitante', TextType::class, ['label' => 'Nombre: '])
+                ->add('apellido1Solicitante', TextType::class, ['label' => 'Primer Apellido: '])
+                ->add('apellido2Solicitante', TextType::class, ['label' => 'Segundo Apellido: '])
+                ->add('telefonoSolicitante', TelType::class, ['label' => 'Teléfono: '])
+                ->add('emailSolicitante', EmailType::class, ['label' => 'E-mail: '])
             ->add('lugarEvento', ChoiceType::class,
-                array(
-                    'choices' => array(
-                       'Rectorado' => array(
-                            'Salón de Actos' => 'Rectorado: Salón de Actos',
-                        ),
-                        'Móstoles' => array(
-                            'Aula Magna 1' => 'Móstoles: Aula Magna 1',
-                            'Aula Magna 2' => 'Móstoles: Aula Magna 2',
-                            'Aula Magna 3' => 'Móstoles: Aula Magna 3',
-                            'Salón de Grados 1' => 'Móstoles: Salón de Grados 1',
-                            'Salón de Grados 2' => 'Móstoles: Salón de Grados 2',
-                        ),
-                        'Alcorcón' => array(
-                            'Salón de Actos Gestión' => 'Alcorcón: Salón de Actos Gestión',
-                            'Salón de Actos Departamental 2' => 'Alcorcón: Salón de Actos Departamental 2',
-                            'Salón de Grados 1' => 'Alcorcón: Salón de Grados 1',
-                            'Aula Magna 1' => 'Alcorcón: Aula Magna 1',
-                        ),
-                        'Fuenlabrada' => array(
-                            'Salón de Actos' => 'Fuenlabrada: Salón de Actos',
-                            'Salón de Grados' => 'Fuenlabrada: Salón de Grados',
-                            'Aula Magna 1' => 'Fuenlabrada: Aula Magna 1',
-                            'Aula Magna 3' => 'Fuenlabrada: Aula Magna 3',
-                        ),
-                        'Madrid' => array(
-                            'Salón de Actos Biblioteca' => 'Madrid: Salón de Actos Biblioteca',
-                            'Salón de Actos Manuel Becerra' => 'Madrid: Salón de Actos Manuel Becerra',
-                            'Salón de Grados 1' => 'Madrid: Salón de Grados 1',
-                        ),
-                    ),//fin 'choices'
-                'expanded' => true
-                )//fin array de choices
+                    array(
+                        'choices' => array(
+                           'Rectorado' => array(
+                                'Salón de Actos' => 'Rectorado: Salón de Actos',
+                            ),
+                            'Móstoles' => array(
+                                'Aula Magna 1' => 'Móstoles: Aula Magna 1',
+                                'Aula Magna 2' => 'Móstoles: Aula Magna 2',
+                                'Aula Magna 3' => 'Móstoles: Aula Magna 3',
+                                'Salón de Grados 1' => 'Móstoles: Salón de Grados 1',
+                                'Salón de Grados 2' => 'Móstoles: Salón de Grados 2',
+                            ),
+                            'Alcorcón' => array(
+                                'Salón de Actos Gestión' => 'Alcorcón: Salón de Actos Gestión',
+                                'Salón de Actos Departamental 2' => 'Alcorcón: Salón de Actos Departamental 2',
+                                'Salón de Grados 1' => 'Alcorcón: Salón de Grados 1',
+                                'Aula Magna 1' => 'Alcorcón: Aula Magna 1',
+                            ),
+                            'Fuenlabrada' => array(
+                                'Salón de Actos' => 'Fuenlabrada: Salón de Actos',
+                                'Salón de Grados' => 'Fuenlabrada: Salón de Grados',
+                                'Aula Magna 1' => 'Fuenlabrada: Aula Magna 1',
+                                'Aula Magna 3' => 'Fuenlabrada: Aula Magna 3',
+                            ),
+                            'Madrid' => array(
+                                'Salón de Actos Biblioteca' => 'Madrid: Salón de Actos Biblioteca',
+                                'Salón de Actos Manuel Becerra' => 'Madrid: Salón de Actos Manuel Becerra',
+                                'Salón de Grados 1' => 'Madrid: Salón de Grados 1',
+                            ),
+                        ),//fin 'choices'
+                        'label' => 'Lugar del evento: '
+                    )//fin array de choiceType
                 )//fin add LugarEvento 
             
             ->add('serviciosContratados', ChoiceType::class, array(
-                'multiple' => true,
-                'choices' => array(
-                    'Sistema de Audio y/o Proyección' => 'Sistema de Audio y/o Proyección',
-                    'Grabación y/o Streaming' => 'Grabación y/o Streaming',
-                    'Traducción simultánea' => 'Traducción simultánea',
-                    'Sistema de audio para prensa externa' => 'Sistema de audio para prensa externa',
-                    'Servicio Técnico previo al evento' => 'Servicio Técnico previo al evento',
-                    'Video conferencia' => 'Video conferencia',
-                ),
-                'expanded' => true,
-                /*'required' */
+                    'multiple' => true,
+                    'expanded' => true,
+                    'choices' => array(
+                        'Sistema de Audio y/o Proyección' => 'Sistema de Audio y/o Proyección',
+                        'Grabación y/o Streaming' => 'Grabación y/o Streaming',
+                        'Traducción simultánea' => 'Traducción simultánea',
+                        'Sistema de audio para prensa externa' => 'Sistema de audio para prensa externa',
+                        'Servicio Técnico previo al evento' => 'Servicio Técnico previo al evento',
+                        'Video conferencia' => 'Video conferencia',
+                    ),
+                    'required' => true,
+                    'label' => 'Servicios: '
+                    )
                 )
-                )
-            /*->add('importeTotal', MoneyType::class)*/
+            ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '])
             ->add('save', SubmitType::class, ['label' => 'Enviar Solicitud']);
     }/**
      * {@inheritdoc}
