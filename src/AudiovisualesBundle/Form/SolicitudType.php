@@ -31,11 +31,11 @@ class SolicitudType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nombreSolicitante', TextType::class)
+            /*->add('nombreSolicitante', TextType::class)
                 ->add('apellido1Solicitante', TextType::class)
                 ->add('apellido2Solicitante', TextType::class)
                 ->add('telefonoSolicitante', TelType::class)
-                ->add('emailSolicitante', EmailType::class)
+                ->add('emailSolicitante', EmailType::class)*/
             ->add('lugarEvento', ChoiceType::class,
                 array(
                     'choices' => array(
@@ -67,6 +67,7 @@ class SolicitudType extends AbstractType
                             'Salón de Grados 1' => 'Madrid: Salón de Grados 1',
                         ),
                     ),//fin 'choices'
+                'expanded' => true
                 )//fin array de choices
                 )//fin add LugarEvento 
             
@@ -84,7 +85,7 @@ class SolicitudType extends AbstractType
                 /*'required' */
                 )
                 )
-            ->add('importeTotal', MoneyType::class)
+            /*->add('importeTotal', MoneyType::class)*/
             ->add('save', SubmitType::class, ['label' => 'Enviar Solicitud']);
     }/**
      * {@inheritdoc}
