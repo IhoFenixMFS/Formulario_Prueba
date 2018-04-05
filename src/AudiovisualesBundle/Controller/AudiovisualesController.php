@@ -38,7 +38,8 @@ class AudiovisualesController extends Controller
     	{
     		$solicitud = new Solicitud();
 
-        	$form = $this->createForm(SolicitudPruebasType::class, $solicitud);
+        	//$form = $this->createForm(SolicitudPruebasType::class, $solicitud);
+            $form = $this->createForm(SolicitudType::class, $solicitud);
 
             $form->handleRequest($request);
 
