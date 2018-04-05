@@ -64,6 +64,21 @@ class Solicitud
     protected $lugarEvento;
 
     /**
+     * @var date
+     *
+     * @ORM\Column(name="Desde", type="date")
+     */
+    protected $desde;
+
+    /**
+     * @var date
+     *
+     * @ORM\Column(name="Hasta", type="date")
+     */
+    protected $hasta;
+
+
+    /**
      * @var array
      *
      * @ORM\Column(name="ServiciosContratados", type="array")
@@ -230,6 +245,40 @@ class Solicitud
     public function getLugarEvento()
     {
         return $this->lugarEvento;
+    }
+
+    public function setDesde($desde)
+    {
+        $this->desde = $desde;
+
+        return $this;
+    }
+
+    /**
+     * Get lugarEvento
+     *
+     * @return date
+     */
+    public function getDesde()
+    {
+        return $this->desde;
+    }
+
+    public function setHasta($hasta)
+    {
+        $this->hasta = $hasta;
+
+        return $this;
+    }
+
+    /**
+     * Get lugarEvento
+     *
+     * @return date
+     */
+    public function getHasta()
+    {
+        return $this->hasta;
     }
 
     /**

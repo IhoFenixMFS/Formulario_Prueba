@@ -14,6 +14,7 @@ use AudiovisualesBundle\Entity\Solicitud;
 use AudiovisualesBundle\Entity\DatosFacturacion;
 
 use AudiovisualesBundle\Form\SolicitudType;
+use AudiovisualesBundle\Form\SolicitudPruebasType;
 use AudiovisualesBundle\Form\DatosFacturacionType;
 
 class AudiovisualesController extends Controller
@@ -37,7 +38,7 @@ class AudiovisualesController extends Controller
     	{
     		$solicitud = new Solicitud();
 
-        	$form = $this->createForm(SolicitudType::class, $solicitud);
+        	$form = $this->createForm(SolicitudPruebasType::class, $solicitud);
 
             $form->handleRequest($request);
 

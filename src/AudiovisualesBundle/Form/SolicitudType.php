@@ -17,6 +17,7 @@ use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\SearchType;
 use Symfony\Component\Form\Extension\Core\Type\TelType;
+use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 use AudiovisualesBundle\Entity\Categoria;
 
@@ -32,10 +33,10 @@ class SolicitudType extends AbstractType
     {
         $builder
             ->add('nombreSolicitante', TextType::class, ['label' => 'Nombre: '])
-                ->add('apellido1Solicitante', TextType::class, ['label' => 'Primer Apellido: '])
-                ->add('apellido2Solicitante', TextType::class, ['label' => 'Segundo Apellido: '])
-                ->add('telefonoSolicitante', TelType::class, ['label' => 'Teléfono: '])
-                ->add('emailSolicitante', EmailType::class, ['label' => 'E-mail: '])
+            ->add('apellido1Solicitante', TextType::class, ['label' => 'Primer Apellido: '])
+            ->add('apellido2Solicitante', TextType::class, ['label' => 'Segundo Apellido: '])
+            ->add('telefonoSolicitante', TelType::class, ['label' => 'Teléfono: '])
+            ->add('emailSolicitante', EmailType::class, ['label' => 'E-mail: '])
             ->add('lugarEvento', ChoiceType::class,
                     array(
                         'choices' => array(
@@ -70,7 +71,8 @@ class SolicitudType extends AbstractType
                         'label' => 'Lugar del evento: '
                     )//fin array de choiceType
                 )//fin add LugarEvento 
-            
+            ->add('desde', DateTimeType::class)
+            ->add('hasta', DateTimeType::class)
             ->add('serviciosContratados', ChoiceType::class, array(
                     'multiple' => true,
                     'expanded' => true,
