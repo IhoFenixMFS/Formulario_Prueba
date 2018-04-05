@@ -95,33 +95,28 @@ class SolicitudPruebasType extends AbstractType
 
         $builder
             ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '],
-                function() {
-                    $serv=0;
-                    $serviciosContratados = 'serviciosContratados';
-                    
-                    $serv = count($serviciosContratados);
+                    function() {
+                        $serv=0;
+                        $serviciosContratados = 'serviciosContratados';
+                        $serv = count($serviciosContratados);
+                        $importeTotal=26.52;
+                        $importeTotal=$importeTotal*($serv+1);
+                        return $importeTotal;
+                    },
+                    ['disable'=>true]);
+        $builder->get('serviciosContratados')->addModelTransformer(new CallbackTransformer(
+                        function ($tagsAsArray) {
+                        // transform the array to a string
+                            $tagsAsArray=$builder->get('serviciosContratados');
+                            $ret=implode(", ", $tagsAsArray);    
+                        
+                            return $ret;
+                        },
+                    function ($tagsAsString) {
 
-                    $importeTotal=26.52;
-
-                    $importeTotal=$importeTotal*($serv+1);
-                    return $importeTotal;
-                },
-                ['disable'=>true]);
-        $builder->get('serviciosContratados')
-            ->addModelTransformer(new CallbackTransformer(
-                function ($tagsAsArray) {
-                    // transform the array to a string
-                        $tagsAsArray=$builder->get('serviciosContratados');
-                        $ret=implode(", ", $tagsAsArray);    
-                    
-                    return $ret;
-                },
-                function ($tagsAsString) {
-
-                    return explode(', ', $tagsAsString);
-                }
-            ))
-        ;
+                        return explode(', ', $tagsAsString);
+                    }
+                ));
         $builder
             ->add('save', SubmitType::class, ['label' => 'Enviar Solicitud']);
     }/**
