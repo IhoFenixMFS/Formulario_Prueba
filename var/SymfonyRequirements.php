@@ -634,8 +634,8 @@ class SymfonyRequirements extends RequirementCollection
         );
 
         $this->addRecommendation(
-            function_exists('utf8_decode'),
-            'utf8_decode() should be available',
+            function_exists('utf8_unicode_ci'),
+            'utf8_unicode_ci() should be available',
             'Install and enable the <strong>XML</strong> extension.'
         );
 

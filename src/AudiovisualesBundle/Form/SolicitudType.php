@@ -86,7 +86,6 @@ class SolicitudType extends AbstractType
                     ),
                     'required' => true,
                     'label' => 'Servicios: ',
-                   
                     )//fin array de opciones del CoiceType
                 )//fin add 'serviciosContratados'
             ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '])

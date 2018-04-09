@@ -95,6 +95,6 @@ class __TwigTemplate_36bcd6ca0c00f6237c245b18d0ee47a752b10b4758363b30d39d916fccd
         ?>
     </div>
 <?php endif ?>
-", "@Framework/Form/time_widget.html.php", "C:\\Users\\m.fernandezsu\\Audiovisiales\\Formulario_Prueba\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle\\Resources\\views\\Form\\time_widget.html.php");
+", "@Framework/Form/time_widget.html.php", "C:\\Users\\m.fernandezsu\\Audiovisuales\\Formulario_Prueba\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\FrameworkBundle\\Resources\\views\\Form\\time_widget.html.php");
     }
 }

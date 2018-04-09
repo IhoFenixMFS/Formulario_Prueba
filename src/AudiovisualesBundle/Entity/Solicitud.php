@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Solicitud
  *
- * @ORM\Table(name="solicitud")
+ * @ORM\Table(name="solicitud", options={"collate"="utf8_unicode_ci"})
  * @ORM\Entity(repositoryClass="AudiovisualesBundle\Repository\SolicitudRepository")
  */
 class Solicitud

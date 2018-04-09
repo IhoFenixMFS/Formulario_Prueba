@@ -118,6 +118,6 @@ class __TwigTemplate_c02835036e589d6a75cd74a5f426debf537e2b9fc3d9788c7ea8adc3ff8
       </ul>
     </div>
   </div>
-</nav>", "menu.html.twig", "C:\\Users\\m.fernandezsu\\Audiovisiales\\Formulario_Prueba\\app\\Resources\\views\\menu.html.twig");
+</nav>", "menu.html.twig", "C:\\Users\\m.fernandezsu\\Audiovisuales\\Formulario_Prueba\\app\\Resources\\views\\menu.html.twig");
     }
 }

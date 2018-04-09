@@ -67,6 +67,6 @@ class __TwigTemplate_cd32bde48d63b69091cf6c6dd8b939dc6416274bbc73eed1cf945203a69
         return new Twig_Source("<h1>New solicitud.</h1>
 {{form_start(form, {'action':'', 'method':'POST'})}}
 
-{{form_end(form)}}", "@Audiovisuales/Solicitud/new.html.twig", "C:\\Users\\m.fernandezsu\\Audiovisiales\\Formulario_Prueba\\src\\AudiovisualesBundle\\Resources\\views\\Solicitud\\new.html.twig");
+{{form_end(form)}}", "@Audiovisuales/Solicitud/new.html.twig", "C:\\Users\\m.fernandezsu\\Audiovisuales\\Formulario_Prueba\\src\\AudiovisualesBundle\\Resources\\views\\Solicitud\\new.html.twig");
     }
 }
