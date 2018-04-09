@@ -81,7 +81,7 @@ class Solicitud
     /**
      * @var array
      *
-     * @ORM\Column(name="ServiciosContratados", type="array")
+     * @ORM\Column(name="ServiciosContratados", type="json_array")
      */
     protected $serviciosContratados;
 

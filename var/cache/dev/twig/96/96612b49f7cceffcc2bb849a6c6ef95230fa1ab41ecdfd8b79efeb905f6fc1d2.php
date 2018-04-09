@@ -102,6 +102,6 @@ class __TwigTemplate_f7463b411a2ee4e3ecbc92185d0dbb69c74b43d1e9bbd25554bf3500be4
 {% endfor %}
 </pre>
 {% endif %}
-", "@Twig/Exception/traces.txt.twig", "C:\\Users\\m.fernandezsu\\Audiovisiales\\Formulario_Prueba\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle\\Resources\\views\\Exception\\traces.txt.twig");
+", "@Twig/Exception/traces.txt.twig", "C:\\Users\\m.fernandezsu\\Audiovisuales\\Formulario_Prueba\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\TwigBundle\\Resources\\views\\Exception\\traces.txt.twig");
     }
 }

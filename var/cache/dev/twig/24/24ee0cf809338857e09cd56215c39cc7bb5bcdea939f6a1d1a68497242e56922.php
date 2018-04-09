@@ -1160,6 +1160,6 @@ class __TwigTemplate_ec270f2fb86fb6480c807e8241c25a09ec628f4a07fe0e593f1e0a8cbda
         </table>
     {% endif %}
 {% endblock %}
-", "@Security/Collector/security.html.twig", "C:\\Users\\m.fernandezsu\\Audiovisiales\\Formulario_Prueba\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle\\Resources\\views\\Collector\\security.html.twig");
+", "@Security/Collector/security.html.twig", "C:\\Users\\m.fernandezsu\\Audiovisuales\\Formulario_Prueba\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\SecurityBundle\\Resources\\views\\Collector\\security.html.twig");
     }
 }

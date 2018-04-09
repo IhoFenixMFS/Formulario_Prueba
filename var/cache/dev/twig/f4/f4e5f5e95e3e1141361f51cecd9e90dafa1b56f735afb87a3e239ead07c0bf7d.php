@@ -460,6 +460,6 @@ class __TwigTemplate_f38c8f41261262115448a82035c585d1c9c730f3cdae5a4334a67bb155e
         </div>
     {% endfor %}
 {% endblock %}
-", "@WebProfiler/Collector/validator.html.twig", "C:\\Users\\m.fernandezsu\\Audiovisiales\\Formulario_Prueba\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle\\Resources\\views\\Collector\\validator.html.twig");
+", "@WebProfiler/Collector/validator.html.twig", "C:\\Users\\m.fernandezsu\\Audiovisuales\\Formulario_Prueba\\vendor\\symfony\\symfony\\src\\Symfony\\Bundle\\WebProfilerBundle\\Resources\\views\\Collector\\validator.html.twig");
     }
 }

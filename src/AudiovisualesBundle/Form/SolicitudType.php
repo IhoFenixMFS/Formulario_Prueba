@@ -85,9 +85,10 @@ class SolicitudType extends AbstractType
                         'Video conferencia' => 'Video conferencia',
                     ),
                     'required' => true,
-                    'label' => 'Servicios: '
-                    )
-                )
+                    'label' => 'Servicios: ',
+                   
+                    )//fin array de opciones del CoiceType
+                )//fin add 'serviciosContratados'
             ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '])
             ->add('save', SubmitType::class, ['label' => 'Enviar Solicitud']);
     }/**
