@@ -1,6 +1,6 @@
 {
-    "name": "symfony/framework-standard-edition",
-    "license": "MIT",
+    "name": "m.fernandezsu/formulario",
+    "license": "proprietary",
     "type": "project",
     "description": "The \"Symfony Standard Edition\" distribution",
     "autoload": {
@@ -10,8 +10,12 @@
         "classmap": [ "app/AppKernel.php", "app/AppCache.php" ]
     },
     "autoload-dev": {
-        "psr-4": { "Tests\\": "tests/" },
-        "files": [ "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php" ]
+        "psr-4": {
+            "Tests\\": "tests/"
+        },
+        "files": [
+            "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
+        ]
     },
     "require": {
         "php": ">=5.5.9",
