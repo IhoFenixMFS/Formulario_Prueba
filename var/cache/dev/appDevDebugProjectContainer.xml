@@ -17,6 +17,7 @@
       <parameter key="DoctrineBundle">Doctrine\Bundle\DoctrineBundle\DoctrineBundle</parameter>
       <parameter key="SensioFrameworkExtraBundle">Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle</parameter>
       <parameter key="AppBundle">AppBundle\AppBundle</parameter>
+      <parameter key="AudiovisualesBundle">AudiovisualesBundle\AudiovisualesBundle</parameter>
       <parameter key="DebugBundle">Symfony\Bundle\DebugBundle\DebugBundle</parameter>
       <parameter key="WebProfilerBundle">Symfony\Bundle\WebProfilerBundle\WebProfilerBundle</parameter>
       <parameter key="SensioDistributionBundle">Sensio\Bundle\DistributionBundle\SensioDistributionBundle</parameter>
@@ -63,6 +64,11 @@
         <parameter key="parent">null</parameter>
         <parameter key="path">C:\Users\m.fernandezsu\Audiovisiales\Formulario_Prueba\src\AppBundle</parameter>
         <parameter key="namespace">AppBundle</parameter>
+      </parameter>
+      <parameter key="AudiovisualesBundle" type="collection">
+        <parameter key="parent">null</parameter>
+        <parameter key="path">C:\Users\m.fernandezsu\Audiovisiales\Formulario_Prueba\src\AudiovisualesBundle</parameter>
+        <parameter key="namespace">AudiovisualesBundle</parameter>
       </parameter>
       <parameter key="DebugBundle" type="collection">
         <parameter key="parent">null</parameter>
@@ -2666,6 +2672,14 @@
         <argument>!Doctrine</argument>
       </call>
       <call method="addPath">
+        <argument>C:\Users\m.fernandezsu\Audiovisiales\Formulario_Prueba\src\AudiovisualesBundle/Resources/views</argument>
+        <argument>Audiovisuales</argument>
+      </call>
+      <call method="addPath">
+        <argument>C:\Users\m.fernandezsu\Audiovisiales\Formulario_Prueba\src\AudiovisualesBundle/Resources/views</argument>
+        <argument>!Audiovisuales</argument>
+      </call>
+      <call method="addPath">
         <argument>C:\Users\m.fernandezsu\Audiovisiales\Formulario_Prueba\vendor\symfony\symfony\src\Symfony\Bundle\DebugBundle/Resources/views</argument>
         <argument>Debug</argument>
       </call>
@@ -3243,7 +3257,9 @@
     </service>
     <service id="doctrine.orm.default_configuration" class="Doctrine\ORM\Configuration" public="false">
       <call method="setEntityNamespaces">
-        <argument type="collection"/>
+        <argument type="collection">
+          <argument key="AudiovisualesBundle">AudiovisualesBundle\Entity</argument>
+        </argument>
       </call>
       <call method="setMetadataCacheImpl">
         <argument type="service" id="doctrine_cache.providers.doctrine.orm.default_metadata_cache"/>
@@ -3285,7 +3301,18 @@
         <argument type="service" id="doctrine.orm.container_repository_factory"/>
       </call>
     </service>
-    <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false"/>
+    <service id="doctrine.orm.default_annotation_metadata_driver" class="Doctrine\ORM\Mapping\Driver\AnnotationDriver" public="false">
+      <argument type="service" id="annotations.cached_reader"/>
+      <argument type="collection">
+        <argument>C:\Users\m.fernandezsu\Audiovisiales\Formulario_Prueba\src\AudiovisualesBundle\Entity</argument>
+      </argument>
+    </service>
+    <service id="doctrine.orm.default_metadata_driver" class="Doctrine\Common\Persistence\Mapping\Driver\MappingDriverChain" public="false">
+      <call method="addDriver">
+        <argument type="service" id="doctrine.orm.default_annotation_metadata_driver"/>
+        <argument>AudiovisualesBundle\Entity</argument>
+      </call>
+    </service>
     <service id="doctrine_cache.providers.doctrine.orm.default_metadata_cache" class="Doctrine\Common\Cache\ArrayCache" public="true">
       <call method="setNamespace">
         <argument>sf_orm_default_1694e251b0ac05e9d3d7e7dcaac72b11ba439a6c1a4c149a98604843fa89636e</argument>

@@ -107,6 +107,39 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // audiovisuales_homepage
+        if ('/audiovisuales' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'AudiovisualesBundle\\Controller\\DefaultController::indexAction',  '_route' => 'audiovisuales_homepage',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_audiovisuales_homepage;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'audiovisuales_homepage'));
+            }
+
+            return $ret;
+        }
+        not_audiovisuales_homepage:
+
+        if (0 === strpos($pathinfo, '/audiovisuales/solicitudes')) {
+            // audiovisuales_solicitud_nueva
+            if ('/audiovisuales/solicitudes/nueva' === $pathinfo) {
+                return array (  '_controller' => 'AudiovisualesBundle\\Controller\\AudiovisualesController::nuevaAction',  '_route' => 'audiovisuales_solicitud_nueva',);
+            }
+
+            // audiovisuales_error
+            if ('/audiovisuales/solicitudes/error' === $pathinfo) {
+                return array (  '_controller' => 'AudiovisualesBundle\\Controller\\AudiovisualesController::errorAction',  '_route' => 'audiovisuales_error',);
+            }
+
+            // audiovisuales_done
+            if ('/audiovisuales/solicitudes/done' === $pathinfo) {
+                return array (  '_controller' => 'AudiovisualesBundle\\Controller\\AudiovisualesController::doneAction',  '_route' => 'audiovisuales_done',);
+            }
+
+        }
+
         // homepage
         if ('' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'AppBundle\\Controller\\DefaultController::indexAction',  '_route' => 'homepage',);
