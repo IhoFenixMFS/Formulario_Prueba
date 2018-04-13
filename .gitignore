@@ -1,0 +1,15 @@
+/var/*
+/var/cache/*
+/var/cache/dev/pools/*
+/var/logs/*
+/var/logs/dev.log
+/var/sessions/*
+/var/sessions/dev/*
+
+!/var/cache
+!var/cache/.gitkeep
+!/var/logs
+!var/logs/.gitkeep
+!/var/sessions
+!var/sessions/.gitkeep
+!var/SymfonyRequirements.php
