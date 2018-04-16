@@ -1,11 +1,8 @@
 <h1>Nueva solicitud.</h1>
-<!--
-
-	{#{}#}
-
--->
+<!--	{#{}#}	-->
 {{form_start(form, {'action':'', 'method':'POST'})}}
-{% block form_row %}
+<!--	Datos solicitante	-->
+{% block solicitante %}
 <div class="form_row" style="width:25%;height:30%;background-color:orange">
 	{{ form_row(form.nombreSolicitante) }}<br>
 	{{ form_row(form.apellido1Solicitante)}}<br>	
@@ -13,43 +10,34 @@
 	{{ form_row(form.telefonoSolicitante)}}<br>
 	{{ form_row(form.emailSolicitante)}}<br>
 </div>
-{% endblock form_row%}
-
-{% block form_row2 %}
+{% endblock solicitante%}
+<!--	Facturacion	-->
+{% block facturacion %}
+<div class="form_row" style="width:25%;height:30%;background-color:grey">
+	{{ form_row(form.empresa) }}<br>
+	{{ form_row(form.cifNif)}}<br>	
+	{{ form_row(form.telefono)}}<br>
+	{{ form_row(form.email)}}<br>
+	{{ form_row(form.contacto)}}<br>
+</div>
+{% endblock facturacion%}
+<!--	Datos del evento	-->
+{% block evento_1 %}
 <div class="form_row" style="width:25%;height:20%;background-color:pink">
 	{{ form_row(form.lugarEvento)}}
 	{{ form_row(form.desde)}}	
 	{{ form_row(form.hasta)}}
 </div>
-{% endblock form_row2 %}
-
-
-
-{% block form_row4 %}
+{% endblock evento_1 %}
+{% block evento_2 %}
 <div class="form_row" style="width:25%;height:40%;;background-color:#58FA82">
-
-			{% block form_row3 %}
+			{% block servicios %}
 			<div class="form_row" style="width:75%;height:40%;background-color:cyan">
 				<tr>{{ form_row(form.serviciosContratados)}}<br>
 			</div>
-			{% endblock form_row3 %}
+			{% endblock servicios %}
 	{{ form_row(form.importeTotal)}}<br>
 	{{ form_row(form.save)}}<br>
 </div>
-{% endblock form_row4 %}
-
-{#
-
-{% form_theme form _self %}
-
-{% block _nombre_solicitante_row %}
-    <div class="nombre_solicitante_row">
-        {{ form_label(form) }}
-        {{ form_errors(form) }}
-        {{ form_widget(form) }}
-    </div>
-{% endblock %}
-
-{{ form_row(form.nombreSolicitante) }}
-#}
+{% endblock evento_2 %}
 {{form_end(form)}}

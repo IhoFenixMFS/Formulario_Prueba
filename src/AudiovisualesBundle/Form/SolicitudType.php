@@ -21,9 +21,6 @@ use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
 
 use AudiovisualesBundle\Entity\Categoria;
 
-
-
-
 class SolicitudType extends AbstractType
 {
     /**
@@ -32,11 +29,19 @@ class SolicitudType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            /*----------------------------- Datos solicitante ------------------------*/
             ->add('nombreSolicitante', TextType::class, ['label' => 'Nombre: '])
             ->add('apellido1Solicitante', TextType::class, ['label' => 'Primer Apellido: '])
             ->add('apellido2Solicitante', TextType::class, ['label' => 'Segundo Apellido: '])
             ->add('telefonoSolicitante', TelType::class, ['label' => 'Teléfono: '])
             ->add('emailSolicitante', EmailType::class, ['label' => 'E-mail: '])
+            /*------------------------------ Facturacion -------------------------------*/
+            ->add('empresa', TextType::class, ['label' => 'Denominación empresa: ', 'required' => false])
+            ->add('cifNif'TextType::class, ['label' => 'CIF / NIF: ', 'required' => false])
+            ->add('telefono', TelType::class, ['label' => 'Telf. de la empresa: ', 'required' => false])
+            ->add('email', EmailType::class, ['label' => 'E-mail de la empresa: ', 'required' => false])
+            ->add('contacto', TextType::class, ['label' => 'Persona de contacto: ', 'required' => false])
+            /*---------------------------- Datos del evento --------------------------*/
             ->add('lugarEvento', ChoiceType::class,
                     array(
                         'choices' => array(
