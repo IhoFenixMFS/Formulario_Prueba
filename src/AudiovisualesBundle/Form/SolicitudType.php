@@ -37,7 +37,7 @@ class SolicitudType extends AbstractType
             ->add('emailSolicitante', EmailType::class, ['label' => 'E-mail: '])
             /*------------------------------ Facturacion -------------------------------*/
             ->add('empresa', TextType::class, ['label' => 'Denominación empresa: ', 'required' => false])
-            ->add('cifNif'TextType::class, ['label' => 'CIF / NIF: ', 'required' => false])
+            ->add('cifNif', TextType::class, ['label' => 'CIF / NIF: ', 'required' => false])
             ->add('telefono', TelType::class, ['label' => 'Telf. de la empresa: ', 'required' => false])
             ->add('email', EmailType::class, ['label' => 'E-mail de la empresa: ', 'required' => false])
             ->add('contacto', TextType::class, ['label' => 'Persona de contacto: ', 'required' => false])
@@ -90,7 +90,7 @@ class SolicitudType extends AbstractType
                         'Video conferencia' => 'Video conferencia',
                     ),
                     'required' => true,
-                    'label' => 'Servicios: ',
+                    /*'label' => 'Servicios disponibles: ',*/
                     )//fin array de opciones del CoiceType
                 )//fin add 'serviciosContratados'
             ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '])
