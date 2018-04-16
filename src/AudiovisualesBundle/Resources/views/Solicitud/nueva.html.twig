@@ -1,4 +1,65 @@
-<h1>Nueva solicitud.</h1>
+<h1 style="text-decoration: underline">Nueva solicitud.</h1>
+<!--	{#{}#}	-->
 {{form_start(form, {'action':'', 'method':'POST'})}}
-	{#{}#}
+<!--	Datos solicitante	-->
+{% block solicitante %}
+<div class="form_row" style="width:25%;height:30%;background-color:orange">
+	<h3 style="text-decoration: underline">Datos del solicitante: </h3>
+	{{ form_row(form.nombreSolicitante) }}<br>
+	{{ form_row(form.apellido1Solicitante)}}<br>	
+	{{ form_row(form.apellido2Solicitante)}}<br>
+	{{ form_row(form.telefonoSolicitante)}}<br>
+	{{ form_row(form.emailSolicitante)}}<br>
+</div>
+{% endblock solicitante%}
+<!--	Facturacion	-->
+{% block facturacion %}
+<div class="form_row" style="width:25%;height:40%;background-color:grey">
+	<h3 style="text-decoration: underline">Datos de facturación: </h3><br>
+	<b1 style="font-size:15px;">No es obligatorio, pero si desea factura deberá rellenar correctamente todos los campos</b1><br>
+	{{ form_row(form.empresa) }}<br>
+	{{ form_row(form.cifNif)}}<br>	
+	{{ form_row(form.telefono)}}<br>
+	{{ form_row(form.email)}}<br>
+	{{ form_row(form.contacto)}}<br>
+</div>
+{% endblock facturacion%}
+<!--	Datos del evento	-->
+{% block evento %}
+<div class="form_row" style="width:25%;height:25%;background-color:pink">
+	<h3>Datos del evento: </h3>
+	{{ form_row(form.lugarEvento)}}
+	{{ form_row(form.desde)}}	
+	{{ form_row(form.hasta)}}
+</div>
+{% endblock evento %}
+{% block detalle_servicio %}
+<div class="form_row" style="width:25%;height:30%;background-color:#58FA82">
+	<h3 style="text-decoration: underline"> Servicios disponibles: </h3>
+		{% block servicios %}
+			<div class="form_row" style="width:75%;height:55%;background-color:cyan">
+			{#	
+				<table>
+					<thead>
+						<tr role"serviciosContratados">
+							{% for serviciosContratados in form.serviciosContratados %} 
+							<th tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">
+								{{ form_label(serviciosContratados)}}
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>{{ form_row(form.serviciosContratados)}}</td>
+						</tr>
+					</tbody>
+				</table>
+			#}
+			{{ form_row(form.serviciosContratados)}}<br>
+			</div>
+		{% endblock servicios %}
+	{{ form_row(form.importeTotal)}}<br>
+	{{ form_row(form.save)}}<br>
+</div>
+{% endblock detalle_servicio %}
 {{form_end(form)}}
