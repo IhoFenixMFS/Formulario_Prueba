@@ -1,0 +1,8 @@
+# src/AudiovisualesBundle/Resources/config/validation.yml
+
+AudiovisualesBundle\Entity\Solicitud:
+  properties:
+    desde:
+      - GreaterThanOrEqual: today
+    hasta:
+      - GreaterThanOrEqual: desde

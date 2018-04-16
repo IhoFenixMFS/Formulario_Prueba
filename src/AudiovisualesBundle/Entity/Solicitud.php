@@ -97,31 +97,8 @@ class Solicitud
          */
         protected $contacto;
 
-    /*---------------------------- Datos del evento --------------------------*/
-
-        /**
-         * @var string
-         *
-         * @ORM\Column(name="LugarEvento", type="string", length=50)
-         */
-        protected $lugarEvento;
-
-        /**
-         * @var array
-         *
-         * @ORM\Column(name="ServiciosContratados", type="json_array")
-         */
-        protected $serviciosContratados;
-
-        /**
-         * @var string
-         *
-         * @ORM\Column(name="ImporteTotal", type="decimal", precision=6, scale=2)
-         */
-        protected $importeTotal;
-
     /*-------------------------------- Duración -------------------------------*/
-        
+            
         /**
          * @var \Date
          *
@@ -149,6 +126,29 @@ class Solicitud
          * @ORM\Column(name="horario", type="string", length=255, nullable=true)
          */
         private $horario;
+
+    /*---------------------------- Datos del evento --------------------------*/
+
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="LugarEvento", type="string", length=50)
+         */
+        protected $lugarEvento;
+
+        /**
+         * @var array
+         *
+         * @ORM\Column(name="ServiciosContratados", type="json_array")
+         */
+        protected $serviciosContratados;
+
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="ImporteTotal", type="decimal", precision=6, scale=2)
+         */
+        protected $importeTotal;
 
 /*------------------------------ Geters y Seters -------------------------------*/
     /*------------------------------------ ID ---------------------------------*/

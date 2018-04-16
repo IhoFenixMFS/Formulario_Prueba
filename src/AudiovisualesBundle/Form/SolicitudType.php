@@ -26,7 +26,7 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 Revisar el DateIntervalType
 ------------------------------------
 */
-use AudiovisualesBundle\Entity\Categoria;
+use AudiovisualesBundle\Entity\Solicitud;
 
 class SolicitudType extends AbstractType
 {
