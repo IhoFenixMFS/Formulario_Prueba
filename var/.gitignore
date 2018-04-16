@@ -1,0 +1,4 @@
+/cache/*
+/sessions/dev/*
+var/cache/dev/pools/*
+var/cache/dev/twig/*
