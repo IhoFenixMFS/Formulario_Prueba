@@ -3,6 +3,7 @@
 namespace AudiovisualesBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Component\Validator\Constraints\Expression;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -11,10 +12,14 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="solicitud", options={"collate"="utf8_unicode_ci"})
  * @ORM\Entity(repositoryClass="AudiovisualesBundle\Repository\SolicitudRepository")
+ * 
+ * @Assert\Expresion(
+ *      "( this.getTotalHoras() <= (1+this.getHasta()-this.getDesde())*13)", message="Horas")
+ * 
  */
+
 class Solicitud
 {
-
 /*--------------------------- Declaración de variables -------------------------*/
     /**
      * @var int
@@ -120,8 +125,6 @@ class Solicitud
          * @var int
          *
          * @ORM\Column(name="total_horas", type="integer")
-         * @Assert\LessThanOrEqual(Expresion("((1+propertyPath="hasta"-propertyPath="desde")*13)"), message="Horas")
-         * 
          */
         private $totalHoras;
         //@Assert\LessThanOrEqual(Expresion("((1+propertyPath="hasta"-propertyPath="desde")*13)"), message="Horas")
