@@ -2223,17 +2223,17 @@
     },
     {
         "name": "symfony/symfony",
-        "version": "v3.4.7",
-        "version_normalized": "3.4.7.0",
+        "version": "v3.4.8",
+        "version_normalized": "3.4.8.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/symfony.git",
-            "reference": "eb07b0eab0bda8441fbf94d06ad1f9896e0552cc"
+            "reference": "5304a36c5efbb01af7efe2bb5b1953dbaeebc293"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/symfony/zipball/eb07b0eab0bda8441fbf94d06ad1f9896e0552cc",
-            "reference": "eb07b0eab0bda8441fbf94d06ad1f9896e0552cc",
+            "url": "https://api.github.com/repos/symfony/symfony/zipball/5304a36c5efbb01af7efe2bb5b1953dbaeebc293",
+            "reference": "5304a36c5efbb01af7efe2bb5b1953dbaeebc293",
             "shasum": ""
         },
         "require": {
@@ -2333,7 +2333,7 @@
             "symfony/phpunit-bridge": "~3.4|~4.0",
             "symfony/security-acl": "~2.8|~3.0"
         },
-        "time": "2018-04-03T05:50:03+00:00",
+        "time": "2018-04-06T15:20:04+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {

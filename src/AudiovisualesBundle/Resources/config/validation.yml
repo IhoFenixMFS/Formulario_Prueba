@@ -5,4 +5,4 @@ AudiovisualesBundle\Entity\Solicitud:
     desde:
       - GreaterThanOrEqual: today
     hasta:
-      - GreaterThanOrEqual: desde
+      - GreaterThanOrEqual: today
