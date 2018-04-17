@@ -2,6 +2,8 @@
 
 namespace AudiovisualesBundle\Entity;
 
+use Symfony\Component\Validator\Constraints as Assert;
+
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -110,6 +112,7 @@ class Solicitud
          * @var \Date
          *
          * @ORM\Column(name="hasta", type="date")
+         * @Assert\GreaterThanOrEqual(propertyPath="desde") 
          */
         private $hasta;
 
