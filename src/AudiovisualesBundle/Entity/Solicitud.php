@@ -112,7 +112,7 @@ class Solicitud
          * @var \Date
          *
          * @ORM\Column(name="hasta", type="date")
-         * @Assert\GreaterThanOrEqual(propertyPath="desde") 
+         * @Assert\GreaterThanOrEqual(propertyPath="desde", message="La fecha de finalización del evento debe ser superior o igual a la fecha de inicio del mismo.") 
          */
         private $hasta;
 
@@ -120,8 +120,12 @@ class Solicitud
          * @var int
          *
          * @ORM\Column(name="total_horas", type="integer")
+         * @Assert\LessThanOrEqual(Expresion("((1+propertyPath="hasta"-propertyPath="desde")*13)"), message="Horas")
+         * 
          */
         private $totalHoras;
+        //@Assert\LessThanOrEqual(Expresion("((1+propertyPath="hasta"-propertyPath="desde")*13)"), message="Horas")
+        //@Assert\LessThanOrEqual(13*propertyPath="desde"-propertyPath="hasta"+1)
 
         /**
          * @var string

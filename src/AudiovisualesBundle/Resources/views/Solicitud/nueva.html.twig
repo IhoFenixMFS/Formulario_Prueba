@@ -28,16 +28,16 @@
 	{% endblock facturacion%}
 <!--	Datos del evento	-->
 	{% block evento %}
-		<div class="form_row" style="width:25%;height:45%;background-color:pink">
+		<div class="form_row" style="width:25%;height:50%;background-color:pink">
 			<h3>Datos del evento: </h3>
 			{{ form_row(form.lugarEvento)}}
 			<!--	Duración	-->
 				{% block duracion %}
-				<div class="form_row" style="width:75%;height:70%;background-color:green">
+				<div class="form_row" style="width:75%;height:75%;background-color:green">
 					<h3>Duración del evento: </h3>
 					{{ form_row(form.desde)}}	
 					{{ form_row(form.hasta)}}
-					{{ form_row(form.totalHoras)}}	
+					{{ form_row(form.totalHoras)}}<br>
 					{{ form_row(form.horario)}}
 				</div>
 				{% endblock duracion %}
