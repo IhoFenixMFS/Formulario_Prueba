@@ -3,6 +3,7 @@
 namespace AudiovisualesBundle\Entity;
 
 use Symfony\Component\Validator\Constraints as Assert;
+//use Symfony\Component\Validator\Tests\Constraints as Assert;
 use Symfony\Component\Validator\Constraints\Expression;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -12,12 +13,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="solicitud", options={"collate"="utf8_unicode_ci"})
  * @ORM\Entity(repositoryClass="AudiovisualesBundle\Repository\SolicitudRepository")
- * 
- * @Assert\Expresion(
- *      "( this.getTotalHoras() <= (1+this.getHasta()-this.getDesde())*13)", message="Horas")
- * 
  */
-
 class Solicitud
 {
 /*--------------------------- Declaración de variables -------------------------*/
@@ -105,7 +101,7 @@ class Solicitud
         protected $contacto;
 
     /*-------------------------------- Duración -------------------------------*/
-            
+           
         /**
          * @var \Date
          *
@@ -125,11 +121,10 @@ class Solicitud
          * @var int
          *
          * @ORM\Column(name="total_horas", type="integer")
+         * @Assert\LessThanOrEqual("this.getHoras(propertyPath='desde',propertyPath='hasta')", message="Mal")
          */
         private $totalHoras;
-        //@Assert\LessThanOrEqual(Expresion("((1+propertyPath="hasta"-propertyPath="desde")*13)"), message="Horas")
-        //@Assert\LessThanOrEqual(13*propertyPath="desde"-propertyPath="hasta"+1)
-
+       
         /**
          * @var string
          *
@@ -441,6 +436,29 @@ class Solicitud
         {
             return $this->desde;
         }
+
+        public function getHoras($ini,$fin)
+        {
+            //,this.getHasta(),
+            //$ini = strtotime($ini);
+            //$ini=$this->getDesde()->format("%d");
+            $ini=explode("-",$ini);
+            $ini=mktime(0,0,0,$ini[0],$ini[1],$ini[2]);
+            //$fin = strtotime($fin);
+            //$fin=$this->getHasta()->format("%d");
+            $fin=explode("-",$fin);
+            $fin=mktime(0,0,0,$fin[0],$fin[1],$fin[2]);
+            //$diferencia = $fin->diff($ini);
+            //$diferencia=$diferencia->format("%d");
+            $diferencia=$fin-$ini;
+            $dias = ((( $diferencia / 60 ) / 60 ) / 24);
+            $difdias = $dias+1;
+            $horasMax=13*$difdias;
+            $esMenor=!($horas>$horasMax);
+
+            return $horasMax;
+        }
+
 
         /**
          * Set hasta
