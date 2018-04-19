@@ -452,11 +452,10 @@ class Solicitud
             //$diferencia=$diferencia->format("%d");
             $diferencia=$fin-$ini;
             $dias = ((( $diferencia / 60 ) / 60 ) / 24);
-            $difdias = $dias+1;
-            $horasMax=13*$difdias;
-            $esMenor=!($horas>$horasMax);
+            //$difdias = $dias+1;
+            //$horasMax=13*$difdias;
 
-            return $horasMax;
+            return $dias;
         }
 
 
