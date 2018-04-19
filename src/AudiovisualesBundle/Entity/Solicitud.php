@@ -101,7 +101,7 @@ class Solicitud
         protected $contacto;
 
     /*-------------------------------- Duración -------------------------------*/
-           
+/**/       
         /**
          * @var \Date
          *
@@ -113,7 +113,7 @@ class Solicitud
          * @var \Date
          *
          * @ORM\Column(name="hasta", type="date")
-         * @Assert\GreaterThanOrEqual(propertyPath="desde", message="La fecha de finalización del evento debe ser superior o igual a la fecha de inicio del mismo.") 
+         * @Assert\GreaterThanOrEqual(propertyPath="desde", message="El evento debe finalizar después de empezar.") 
          */
         private $hasta;
 
@@ -121,10 +121,14 @@ class Solicitud
          * @var int
          *
          * @ORM\Column(name="total_horas", type="integer")
-         * @Assert\LessThanOrEqual("this.getHoras(propertyPath='desde',propertyPath='hasta')", message="Mal")
+         * @Assert\LessThanOrEqual("propertyPath='desde'*13-propertyPath='hasta'*13",message="Error")
          */
+        /*
+            La comparativa devuelve FALSE=(0) todo el tiempo, por lo que evalua la condición como un false continuamente .... ¿por que?
+
+        */
         private $totalHoras;
-       
+
         /**
          * @var string
          *
@@ -412,7 +416,7 @@ class Solicitud
         }
 
     /*-------------------------------- Duración -------------------------------*/
-
+/**/
         /**
          * Set desde
          *
@@ -437,28 +441,58 @@ class Solicitud
             return $this->desde;
         }
 
-        public function getHoras($ini,$fin)
-        {
-            //,this.getHasta(),
-            //$ini = strtotime($ini);
+/*        public function getHoras()
+        {   
+            $ini="propertyPath='desde')";
+            $fin="propertyPath='hasta')";
+            
+            $ini = strptime($ini,'%Y%m%d');
+            
             //$ini=$this->getDesde()->format("%d");
-            $ini=explode("-",$ini);
-            $ini=mktime(0,0,0,$ini[0],$ini[1],$ini[2]);
-            //$fin = strtotime($fin);
+            //$ini=explode("-",$ini);
+            //$ini=mktime(0,0,0,$ini[0],$ini[1],$ini[2]);
+            
+            $fin = strtotime($fin,'%Y%m%d');
+
             //$fin=$this->getHasta()->format("%d");
-            $fin=explode("-",$fin);
-            $fin=mktime(0,0,0,$fin[0],$fin[1],$fin[2]);
+            //$fin=explode("-",$fin);
+            //$fin=mktime(0,0,0,$fin[0],$fin[1],$fin[2]);
+            
             //$diferencia = $fin->diff($ini);
             //$diferencia=$diferencia->format("%d");
-            $diferencia=$fin-$ini;
+
+            $diferencia=$ini-$fin;
             $dias = ((( $diferencia / 60 ) / 60 ) / 24);
-            //$difdias = $dias+1;
+            $difdias = $dias+1;
             //$horasMax=13*$difdias;
 
+
+            $dias = (strtotime($ini)-strtotime($fin))/86400;
+            $dias = abs($dias); $dias = floor($dias);
             return $dias;
+
+
+            //return $diferencia;
         }
+*/
+        function getIntervalDays()
+        {   
+
+            $CheckIn = this.getDesde();
+            $CheckOut = this.getHasta();
+
+            $CheckInX = explode("-", $CheckIn); 
+            $CheckOutX =  explode("-", $CheckOut);
+
+            $date1 =  mktime(0, 0, 0, $CheckInX[1],$CheckInX[2],$CheckInX[0]); 
+            $date2 =  mktime(0, 0, 0, $CheckOutX[1],$CheckOutX[2],$CheckOutX[0]); 
+            $interval =($date2 - $date1)/(3600*24); 
+            $horasTot=1*$interval;
+            return  13; 
 
 
+        }
+/**/
         /**
          * Set hasta
          *
@@ -606,4 +640,3 @@ class Solicitud
         }
 
 }
-
