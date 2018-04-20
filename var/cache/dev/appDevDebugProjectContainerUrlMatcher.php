@@ -107,6 +107,21 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         }
 
+        // formulario_homepage
+        if ('' === $trimmedPathinfo) {
+            $ret = array (  '_controller' => 'FormularioBundle\\Controller\\DefaultController::indexAction',  '_route' => 'formulario_homepage',);
+            if ('/' === substr($pathinfo, -1)) {
+                // no-op
+            } elseif ('GET' !== $canonicalMethod) {
+                goto not_formulario_homepage;
+            } else {
+                return array_replace($ret, $this->redirect($rawPathinfo.'/', 'formulario_homepage'));
+            }
+
+            return $ret;
+        }
+        not_formulario_homepage:
+
         // audiovisuales_homepage
         if ('/audiovisuales' === $trimmedPathinfo) {
             $ret = array (  '_controller' => 'AudiovisualesBundle\\Controller\\DefaultController::indexAction',  '_route' => 'audiovisuales_homepage',);

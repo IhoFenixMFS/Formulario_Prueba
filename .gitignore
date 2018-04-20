@@ -1,10 +1,12 @@
 /var/*
 /var/cache/*
+/var/cache/dev/*
 /var/cache/dev/pools/*
 /var/logs/*
 /var/logs/dev.log
 /var/sessions/*
 /var/sessions/dev/*
+/var/cache/dev/ContainerHm9v1ue/*
 
 !/var/cache
 !var/cache/.gitkeep

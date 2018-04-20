@@ -38,23 +38,15 @@
 	<h3 style="text-decoration: underline"> Servicios disponibles: </h3>
 		{% block servicios %}
 			<div class="form_row" style="width:75%;height:55%;background-color:cyan">
-			{#	
-				<table>
-					<thead>
-						<tr role"serviciosContratados">
-							{% for serviciosContratados in form.serviciosContratados %} 
-							<th tabindex="0" aria-controls="example1" rowspan="1" colspan="1" aria-label="Rendering engine: activate to sort column ascending">
-								{{ form_label(serviciosContratados)}}
-							</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>{{ form_row(form.serviciosContratados)}}</td>
-						</tr>
-					</tbody>
-				</table>
-			#}
+			<!--
+				<h3>Servicios</h3>
+			    <ul class="Servicios">
+			        {# iterate over each existing tag and render its only field: name #}
+{#			        {% for serviciosContratado in form.serviciosContratados %}
+			            <li>{{ form_row(Solicitud.serviciosContratados) }}</li>
+			        {% endfor %}
+			    </ul>
+#}			-->
 			{{ form_row(form.serviciosContratados)}}<br>
 			</div>
 		{% endblock servicios %}
