@@ -35,12 +35,20 @@ class Datos
      */
     private $apellidos;
 
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="Telefono", type="integer")
+     */
+    protected $telefono;
+
     /**
      * @var string
      *
-     * @ORM\Column(name="EmailSol", type="string", length=255)
+     * @ORM\Column(name="Email", type="string", length=255)
      */
-    private $emailSol;
+    private $email;
 
     /**
      * @var string
@@ -116,27 +124,51 @@ class Datos
     }
 
     /**
-     * Set emailSol
+     * Set telefono
      *
-     * @param string $emailSol
+     * @param integer $telefono
+     *
+     * @return Solicitud
+     */
+    public function setTelefono($telefono)
+    {
+        $this->telefono = $telefono;
+
+        return $this;
+    }
+
+    /**
+     * Get telefono
+     *
+     * @return int
+     */
+    public function getTelefono()
+    {
+        return $this->telefono;
+    }
+
+    /**
+     * Set email
+     *
+     * @param string $email
      *
      * @return Datos
      */
-    public function setEmailSol($emailSol)
+    public function setEmail($email)
     {
-        $this->emailSol = $emailSol;
+        $this->email = $email;
     
         return $this;
     }
 
     /**
-     * Get emailSol
+     * Get email
      *
      * @return string
      */
-    public function getEmailSol()
+    public function getEmail()
     {
-        return $this->emailSol;
+        return $this->email;
     }
 
     /**

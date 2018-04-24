@@ -12,6 +12,7 @@ use Symfony\Component\Form\Forms;
 use FormularioBundle\Entity\Calculo;
 use FormularioBundle\Entity\Datos;
 use FormularioBundle\Entity\Duracion;
+use FormularioBundle\Entity\Facturacion;
 
 
 use FormularioBundle\Form\CalculoType;
@@ -52,5 +53,53 @@ class FormularioController extends Controller
 
 		return $this->render('@Formulario/Formulario/calculo.html.twig', array('form' => $form->createView()));  
 	}
+
+    public function datosAction(Request $request)
+    {
+        $datos = new Datos();
+
+        $form = $this->createForm(DatosType::class, $datos);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) 
+            {
+                $solicitud = $form->getData();
+
+                // ... perform some action, such as saving the task to the database
+                // for example, if Task is a Doctrine entity, save it!
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($solicitud);
+                 $entityManager->flush();
+
+                return $this->redirectToRoute('formulario_datos');   
+        }
+
+        return $this->render('@Formulario/Formulario/datos.html.twig', array('form' => $form->createView()));  
+    }
+
+    public function facturacionAction(Request $request)
+    {
+        $facturacion = new Facturacion();
+
+        $form = $this->createForm(FacturacionType::class, $facturacion);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) 
+            {
+                $solicitud = $form->getData();
+
+                // ... perform some action, such as saving the task to the database
+                // for example, if Task is a Doctrine entity, save it!
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($solicitud);
+                 $entityManager->flush();
+
+                return $this->redirectToRoute('formulario_datos');   
+        }
+
+        return $this->render('@Formulario/Formulario/facturacion.html.twig', array('form' => $form->createView()));  
+    }
 
 }
