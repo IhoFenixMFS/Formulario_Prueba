@@ -109,7 +109,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
 
         // formulario_homepage
         if ('' === $trimmedPathinfo) {
-            $ret = array (  '_controller' => 'FormularioBundle\\Controller\\DefaultController::indexAction',  '_route' => 'formulario_homepage',);
+            $ret = array (  '_controller' => 'FormularioBundle:Default:index',  '_route' => 'formulario_homepage',);
             if ('/' === substr($pathinfo, -1)) {
                 // no-op
             } elseif ('GET' !== $canonicalMethod) {
@@ -121,6 +121,24 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
             return $ret;
         }
         not_formulario_homepage:
+
+        if (0 === strpos($pathinfo, '/formulario')) {
+            // formulario_calculo
+            if ('/formulario/calculo' === $pathinfo) {
+                return array (  '_controller' => 'FormularioBundle\\Controller\\FormularioController::calculoAction',  '_route' => 'formulario_calculo',);
+            }
+
+            // formulario_datos
+            if ('/formulario/datos' === $pathinfo) {
+                return array (  '_controller' => 'FormularioBundle\\Controller\\FormularioController::datosAction',  '_route' => 'formulario_datos',);
+            }
+
+            // formulario_facturacion
+            if ('/formulario/facturacion' === $pathinfo) {
+                return array (  '_controller' => 'FormularioBundle\\Controller\\FormularioController::facturacionAction',  '_route' => 'formulario_facturacion',);
+            }
+
+        }
 
         // audiovisuales_homepage
         if ('/audiovisuales' === $trimmedPathinfo) {
@@ -170,7 +188,7 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
         }
         not_homepage:
 
-        if ('/' === $pathinfo) {
+        if ('/' === $pathinfo && !$allow) {
             throw new Symfony\Component\Routing\Exception\NoConfigurationException();
         }
 

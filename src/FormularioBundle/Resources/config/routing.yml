@@ -1,3 +1,15 @@
 formulario_homepage:
     path:     /
     defaults: { _controller: FormularioBundle:Default:index }
+
+formulario_calculo:
+    path:     /formulario/calculo
+    defaults: { _controller: FormularioBundle:Formulario:calculo }
+
+formulario_datos:
+    path:     /formulario/datos
+    defaults: { _controller: FormularioBundle:Formulario:datos }
+
+formulario_facturacion:
+    path:     /formulario/facturacion
+    defaults: { _controller: FormularioBundle:Formulario:facturacion }

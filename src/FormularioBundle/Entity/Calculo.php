@@ -29,12 +29,25 @@ class Calculo
     private $lugar;
 
     /**
-     * @var \DateTime
+     * @var string
      *
-     * @ORM\Column(name="Duracion", type="date")
+     * @ORM\Column(name="Duracion", type="string", length=255)
      */
     private $duracion;
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Servicios", type="string", length=255)
+     */
+    private $servicios;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ImporteTotal", type="decimal", precision=6, scale=2)
+     */
+    protected $importeTotal;
 
     /**
      * Get id
@@ -92,6 +105,55 @@ class Calculo
     public function getDuracion()
     {
         return $this->duracion;
+    }
+
+
+    /**
+     * Set servicios
+     *
+     * @param array $servicios
+     *
+     * @return Solicitud
+     */
+    public function setServicios($servicios)
+    {
+        $this->servicios = $servicios;
+
+        return $this;
+    }
+
+    /**
+     * Get servicios
+     *
+     * @return array
+     */
+    public function getServicios()
+    {
+        return $this->servicios;
+    }
+
+    /**
+     * Set importeTotal
+     *
+     * @param string $importeTotal
+     *
+     * @return Solicitud
+     */
+    public function setImporteTotal($importeTotal)
+    {
+        $this->importeTotal = $importeTotal;
+
+        return $this;
+    }
+
+    /**
+     * Get importeTotal
+     *
+     * @return string
+     */
+    public function getImporteTotal()
+    {
+        return $this->importeTotal;
     }
 }
 

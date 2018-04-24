@@ -1,0 +1,19 @@
+<h1 style="text-decoration: underline">Nueva solicitud.</h1>
+<!--	{#{
+{{form_start(form, {'action':'', 'method':'POST'})}}
+}#}	-->
+{% block solicitante %}
+<div class="form_row" style="width:25%;height:30%;background-color:orange">
+	<h3 style="text-decoration: underline">Datos del solicitante: </h3>
+	Aqui irán los datos del solicitante.
+</div>
+{% endblock solicitante%}
+{% block evento %}
+<div class="form_row" style="width:25%;height:30%;background-color:pink">
+	<h3 style="text-decoration: underline">Datos del evento: </h3>
+	Aqui irán los datos del evento.
+</div>
+{% endblock evento%}
+<!--	{#{
+{{form_end(form)}}
+}#}	-->
