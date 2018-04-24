@@ -11,7 +11,10 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateTimeType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+
+use FormularioBundle\Form\DuracionType;
+
 
 class CalculoType extends AbstractType
 {
@@ -54,7 +57,8 @@ class CalculoType extends AbstractType
                         ),//fin 'choices'
                         'label' => 'Lugar del evento: '
                     ))
-            ->add('duracion', DateTimeType::class)
+            //->add('fechas', DuracionType::class)
+            ->add('fechas', TextType::class, ['label' => 'Fechas:'])
             ->add('servicios', ChoiceType::class, array(
                     'multiple' => true,
                     'expanded' => true,
@@ -67,7 +71,6 @@ class CalculoType extends AbstractType
                         'Video conferencia' => 'Video conferencia',
                     ),
                     'required' => true,
-                    /*'label' => 'Servicios disponibles: ',*/
                     ))
             ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '])
             ->add('calculate', SubmitType::class, ['label' => 'Calcular importe'])

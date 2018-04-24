@@ -31,9 +31,9 @@ class Calculo
     /**
      * @var string
      *
-     * @ORM\Column(name="Duracion", type="string", length=255)
+     * @ORM\Column(name="Fechas", type="string", length=255)
      */
-    private $duracion;
+    private $fechas;
 
     /**
      * @var string
@@ -84,27 +84,27 @@ class Calculo
     }
 
     /**
-     * Set duracion
+     * Set fechas
      *
-     * @param \DateTime $duracion
+     * @param string $fechas
      *
      * @return Calculo
      */
-    public function setDuracion($duracion)
+    public function setFechas($fechas)
     {
-        $this->duracion = $duracion;
+        $this->fechas = $fechas;
     
         return $this;
     }
 
     /**
-     * Get duracion
+     * Get fechas
      *
-     * @return \DateTime
+     * @return string
      */
-    public function getDuracion()
+    public function getFechas()
     {
-        return $this->duracion;
+        return $this->fechas;
     }
 
 

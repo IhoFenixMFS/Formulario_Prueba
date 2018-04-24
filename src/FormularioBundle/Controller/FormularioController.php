@@ -11,10 +11,14 @@ use Symfony\Component\Form\Forms;
 
 use FormularioBundle\Entity\Calculo;
 use FormularioBundle\Entity\Datos;
+use FormularioBundle\Entity\Duracion;
+
 
 use FormularioBundle\Form\CalculoType;
 use FormularioBundle\Form\DatosType;
 use FormularioBundle\Form\FacturacionType;
+
+use FormularioBundle\Form\DuracionType;
 
 class FormularioController extends Controller
 {
@@ -26,8 +30,10 @@ class FormularioController extends Controller
     public function calculoAction(Request $request)
 	{
 		$calculo = new Calculo();
+        //$duracion = new Duracion();
 
         $form = $this->createForm(CalculoType::class, $calculo);
+        //$form2 = $this->createForm(DuracionType::class, $calculo);
 
         $form->handleRequest($request);
 
