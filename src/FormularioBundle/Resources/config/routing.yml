@@ -13,3 +13,7 @@ formulario_datos:
 formulario_facturacion:
     path:     /formulario/facturacion
     defaults: { _controller: FormularioBundle:Formulario:facturacion }
+
+formulario_duracion:
+    path:     /formulario/duracion
+    defaults: { _controller: FormularioBundle:Formulario:duracion }

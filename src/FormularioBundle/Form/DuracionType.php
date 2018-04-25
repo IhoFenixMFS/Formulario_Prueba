@@ -12,7 +12,20 @@ use Symfony\Component\Form\Extension\Core\Type\MoneyType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\TimeType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 
+
+use FormularioBundle\Entity\Lugares;
+use FormularioBundle\Entity\Calculo;
+use FormularioBundle\Entity\Datos;
+use FormularioBundle\Entity\Duracion;
+use FormularioBundle\Entity\Facturacion;
+use FormularioBundle\Entity\Servicios;
+
+/**
+ * Aqui creamos el subformulario para ir añadiendo días al formulario de calculo.
+*/
 class DuracionType extends AbstractType
 {
     /**
@@ -21,9 +34,9 @@ class DuracionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('dia', TextType::class, ['label' => 'Día:'])
-            ->add('desde', DuracionType::class, ['label' => 'Desde:'])
-            ->add('hasta', TextType::class, ['label' => 'hasta:'])
+            ->add('dia', DateType::class, ['label' => 'Día:'])
+            ->add('desde', TimeType::class, ['label' => 'Desde:'])
+            ->add('hasta', TimeType::class, ['label' => 'hasta:'])
         ;
     }/**
      * {@inheritdoc}
@@ -40,7 +53,7 @@ class DuracionType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'formulariobundle_calculo';
+        return 'formulariobundle_duracion';
     }
 
 

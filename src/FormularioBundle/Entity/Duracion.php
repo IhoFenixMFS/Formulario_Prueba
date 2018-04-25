@@ -56,11 +56,11 @@ class Duracion
     /**
      * Set dia
      *
-     * @param string $dia
+     * @param \Date $dia
      *
      * @return Duracion
      */
-    public function setNombreServicio($dia)
+    public function setDia($dia)
     {
         $this->dia = $dia;
     
@@ -70,9 +70,9 @@ class Duracion
     /**
      * Get dia
      *
-     * @return string
+     * @return \Date
      */
-    public function getNombreServicio()
+    public function getDia()
     {
         return $this->dia;
     }

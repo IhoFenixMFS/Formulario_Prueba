@@ -133,6 +133,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'FormularioBundle\\Controller\\FormularioController::datosAction',  '_route' => 'formulario_datos',);
             }
 
+            // formulario_duracion
+            if ('/formulario/duracion' === $pathinfo) {
+                return array (  '_controller' => 'FormularioBundle\\Controller\\FormularioController::duracionAction',  '_route' => 'formulario_duracion',);
+            }
+
             // formulario_facturacion
             if ('/formulario/facturacion' === $pathinfo) {
                 return array (  '_controller' => 'FormularioBundle\\Controller\\FormularioController::facturacionAction',  '_route' => 'formulario_facturacion',);

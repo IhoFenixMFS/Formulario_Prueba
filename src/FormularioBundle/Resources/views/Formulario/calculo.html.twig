@@ -1,15 +1,16 @@
 <h1 style="text-decoration: underline">Nueva solicitud.</h1>
 <!--	{#{}#}	-->
 {{form_start(form, {'action':'', 'method':'POST'})}}
-<!--	Datos solicitante	-->
 {% block calculo %}
-<div class="form_row" style="height:50%;background-color:orange">
+<div class="form_row" style="height:75%;background-color:yellow">
 	<h3 style="text-decoration: underline">Datos del solicitante: </h3>
 	{{ form_row(form.lugar) }}<br>
 	{{ form_row(form.fechas)}}<br>	
 	{{ form_row(form.servicios)}}<br>
-	{{ form_row(form.calculate)}}<br>
-	{{ form_row(form.importeTotal)}}<br>
+	<button type="Button">Calcular</button>
+	{#<input type="button" value="Calcular"
+           class="btn btn-default pull-left" /><br>#}
+    {{ form_row(form.importeTotal)}}<br>
 	{{ form_row(form.save)}}<br>
 </div>
 {% endblock calculo%}

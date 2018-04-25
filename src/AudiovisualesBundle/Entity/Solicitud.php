@@ -415,6 +415,13 @@ class Solicitud
         return $this->lugarEvento;
     }
 
+    /**
+     * Set desde
+     *
+     * @param date $desde
+     *
+     * @return Solicitud
+     */
     public function setDesde($desde)
     {
         $this->desde = $desde;

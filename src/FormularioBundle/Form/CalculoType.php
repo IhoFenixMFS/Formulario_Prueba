@@ -13,17 +13,40 @@ use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 
-use FormularioBundle\Form\DuracionType;
+use FormularioBundle\Entity\Lugares;
+use FormularioBundle\Entity\Calculo;
+use FormularioBundle\Entity\Datos;
+use FormularioBundle\Entity\Duracion;
+use FormularioBundle\Entity\Facturacion;
+use FormularioBundle\Entity\Servicios;
 
+use FormularioBundle\Form\CalculoType;
+use FormularioBundle\Form\DatosType;
+use FormularioBundle\Form\FacturacionType;
+use FormularioBundle\Form\DuracionType;
 
 class CalculoType extends AbstractType
 {
     /**
      * {@inheritdoc}
+     * Esta función es la encargada de crear el formulario.
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
-    {
+    {   
+        /**
+         * Mediante el $builder vamos añadiendo al formulario un campo por cada elemento de la entidad asociada.
+         * Estos elementos son de la forma:
+         * '<nombredelatributo>' con el que indicamos a que atributo de la clase corresponde,
+         * <tipo de campo>Type::class donde decimos a symfony que tipo de campo es y él lo configura con sus
+         *    restricciones propias y lo renderiza,
+         * además de las etiquetas adicionales según cada tipo de campo para configurarlo de forma personalizada.
+        */
         $builder
+        /**
+         * Los ChoiceType tienen 4 variantes: según el valor de sus propiedades 'multiple' y 'expanded',
+         * ambas de tipo booleano, y pueden ser desplegables, radioButton, multiCheckbox y cuadros de 
+         * multiselección.
+        */
             ->add('lugar', ChoiceType::class,
                     array(
                         'choices' => array(
@@ -56,9 +79,8 @@ class CalculoType extends AbstractType
                             ),
                         ),//fin 'choices'
                         'label' => 'Lugar del evento: '
-                    ))
-            //->add('fechas', DuracionType::class)
-            ->add('fechas', TextType::class, ['label' => 'Fechas:'])
+                ))    
+            ->add('fechas', DuracionType::class, ['label' => 'Fechas:'])
             ->add('servicios', ChoiceType::class, array(
                     'multiple' => true,
                     'expanded' => true,
@@ -71,10 +93,9 @@ class CalculoType extends AbstractType
                         'Video conferencia' => 'Video conferencia',
                     ),
                     'required' => true,
-                    ))
+                ))
             ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '])
-            ->add('calculate', SubmitType::class, ['label' => 'Calcular importe'])
-            ->add('save', SubmitType::class, ['label' => 'Enviar Solicitud']);
+            ->add('save', SubmitType::class, ['label' => 'Continuar con la solicitud.']);
     }/**
      * {@inheritdoc}
      */

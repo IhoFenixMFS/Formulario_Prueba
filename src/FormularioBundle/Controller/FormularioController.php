@@ -13,12 +13,14 @@ use FormularioBundle\Entity\Calculo;
 use FormularioBundle\Entity\Datos;
 use FormularioBundle\Entity\Duracion;
 use FormularioBundle\Entity\Facturacion;
+use FormularioBundle\Entity\Lugares;
+use FormularioBundle\Entity\Servicios;
+
 
 
 use FormularioBundle\Form\CalculoType;
 use FormularioBundle\Form\DatosType;
 use FormularioBundle\Form\FacturacionType;
-
 use FormularioBundle\Form\DuracionType;
 
 class FormularioController extends Controller
@@ -31,10 +33,8 @@ class FormularioController extends Controller
     public function calculoAction(Request $request)
 	{
 		$calculo = new Calculo();
-        //$duracion = new Duracion();
 
         $form = $this->createForm(CalculoType::class, $calculo);
-        //$form2 = $this->createForm(DuracionType::class, $calculo);
 
         $form->handleRequest($request);
 
@@ -100,6 +100,30 @@ class FormularioController extends Controller
         }
 
         return $this->render('@Formulario/Formulario/facturacion.html.twig', array('form' => $form->createView()));  
+    }
+
+    public function duracionAction(Request $request)
+    {
+        $datos = new Duracion();
+
+        $form = $this->createForm(DuracionType::class, $datos);
+
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) 
+            {
+                $solicitud = $form->getData();
+
+                // ... perform some action, such as saving the task to the database
+                // for example, if Task is a Doctrine entity, save it!
+                 $entityManager = $this->getDoctrine()->getManager();
+                 $entityManager->persist($solicitud);
+                 $entityManager->flush();
+
+                return $this->redirectToRoute('formulario_duracion');   
+        }
+
+        return $this->render('@Formulario/Formulario/duracion.html.twig', array('form' => $form->createView()));  
     }
 
 }
