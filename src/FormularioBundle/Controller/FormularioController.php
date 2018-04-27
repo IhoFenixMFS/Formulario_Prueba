@@ -44,7 +44,7 @@ class FormularioController extends Controller
 
                 // ... perform some action, such as saving the task to the database
                 // for example, if Task is a Doctrine entity, save it!
-                 $entityManager = $this->getDoctrine()->getManager();
+             $entityManager = $this->getDoctrine()->getManager();
                  $entityManager->persist($solicitud);
                  $entityManager->flush();
 
@@ -123,7 +123,7 @@ class FormularioController extends Controller
                 return $this->redirectToRoute('formulario_duracion');   
         }
 
-        return $this->render('@Formulario/Formulario/duracion.html.twig', array('form' => $form->createView()));  
+    return $this->render('@Formulario/Formulario/duracion.html.twig', array('form' => $form->createView()));  
     }
 
 }
