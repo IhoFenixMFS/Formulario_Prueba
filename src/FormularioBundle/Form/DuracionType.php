@@ -56,5 +56,20 @@ class DuracionType extends AbstractType
         return 'formulariobundle_duracion';
     }
 
+    /**
+     * Aqui creamos una función para poder empotrar el subformulario 'duracion' tantas veces como necesitemos
+     */
+    public function addDuracion()
+    {
+        $dur = new Duracion;
+        $dur->setCard($this-getObject());
+        $dur_form = new DuracionType($dur);
+
+        //Incluimos el subformulario en un contenedor
+        $this->embebedForms['duracion']->embebedForm($num, $dur_form);
+        //Empotramos el contenedor
+        $this-embebedForm('duracion',$this->embebedForms['duracion']);
+    }
+
 
 }

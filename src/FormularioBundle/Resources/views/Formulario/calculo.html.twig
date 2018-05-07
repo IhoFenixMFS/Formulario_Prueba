@@ -5,8 +5,44 @@
 <div class="form_row" style="height:75%;background-color:yellow">
 	<h3 style="text-decoration: underline">Datos del solicitante: </h3>
 	{{ form_row(form.lugar) }}<br>
-	{{ form_row(form.fechas)}}<br>	
+	{{ form_row(form.fechas)}}<br>
+	{# Con esto añadiremos el subform de fechas tantas veces como haga falta #}
+		<script type=&quot;text/javascript&quot;>
+			
+			var pics = <?php print_r($form['duraciones']->count())?>;
+
+			function addDur(num) {
+			  var r = $.ajax({
+			    type: 'GET',
+			    url: '<?php echo url_for('formulario_duracion')?>'+'<?php echo ($form->getObject()->isNew()?'':'?id='.$form->getObject()->getId()).($form->getObject()->isNew()?'?num=':'&amp;num=')?>'+num,
+			    async: false
+			  }).responseText;
+			  return r;
+			}
+			$().ready(function() {
+			  $('button#add_duracion').click(function() {
+			    $(&quot;#extraduraciones&quot;).append(addDur(durs));
+			    dur = dur + 1;
+			  });
+			});
+		</script>
+		<?php echo $form ?>
+		<div id="extraduraciones"/>
+		<tr>
+			<td>
+				<div>
+					<button id="add_duracion" type="button">
+						<?php echo "Añadir otra fecha"?>
+					</button>
+				</div>
+			</td>
+		</tr>
+
+		<?php echo $form['pictures'][$num]['id']->render()?>
+		<?php echo $form['pictures'][$num]['file']->renderRow();?>
+
 	{{ form_row(form.servicios)}}<br>
+	
 	<button type="Button">Calcular</button>
 	{#<input type="button" value="Calcular" class="btn btn-default pull-left" /><br>#}
     {{ form_row(form.importeTotal)}}<br>

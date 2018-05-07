@@ -126,4 +126,38 @@ class FormularioController extends Controller
     return $this->render('@Formulario/Formulario/duracion.html.twig', array('form' => $form->createView()));  
     }
 
+    /**
+     * Funcion para añadir el subform
+     */
+    public function executeAddDurForm($request)
+    {
+         $this->forward404unless($request->isXmlHttpRequest());
+         $number = intval($request->getParameter("num"));
+
+         if($card = CardPeer::retrieveByPk($request->getParameter('id'))){
+         $form = new CardForm($card);
+         }else{
+         $form = new CardForm(null);
+         }
+
+         $form->addPicture($number);
+
+         return $this->renderPartial('addDur',array('form' => $form, 'num' => $number));
+    }
+
+    /**
+     * Funcion para poder controlar los datos y así poder almacenarlos
+     */
+    public function bind(array $taintedValues = null, array $taintedFiles = null)
+    {
+        foreach($taintedValues['pictures'] as $key=>$newPic)
+        {
+            if (!isset($this['pictures'][$key]))
+            {
+                $this->addPicture($key);
+            }
+        }
+
+        parent::bind($taintedValues, $taintedFiles);
+    }
 }
