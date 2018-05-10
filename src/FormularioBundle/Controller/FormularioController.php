@@ -33,23 +33,65 @@ class FormularioController extends Controller
     public function calculoAction(Request $request)
 	{
 		$calculo = new Calculo();
+        $duracion = new Duracion();
 
         $form = $this->createForm(CalculoType::class, $calculo);
-
         $form->handleRequest($request);
+
+        $form2 = $this->createForm(DuracionType::class, $duracion);
+        $form2->handleRequest($request);
+
 
         if ($form->isSubmitted() && $form->isValid()) 
             {
                 $solicitud = $form->getData();
 
-                // ... perform some action, such as saving the task to the database
-                // for example, if Task is a Doctrine entity, save it!
-             $entityManager = $this->getDoctrine()->getManager();
-                 $entityManager->persist($solicitud);
-                 $entityManager->flush();
+                    $entityManager = $this->getDoctrine()->getManager();
+                    $entityManager->persist($solicitud);
+                    $entityManager->flush();
 
+                    if ($form2->isSubmitted() && $form2->isValid()) 
+                        {
+                            $duracion = $form2->getData();
+                            /*
+                                Aquí:
+                                    2º. Almacenar en $idsol el id de la solicitud almacenada (de $solicitud)
+                            */
+                            $idSol = $solicitud->getidsolic();
+
+                            /*
+                                Aquí:
+                                    2º. Añandir el $idSol al obj $duracion o al $form2
+                            */
+
+
+                            /*
+                                Aquí:
+                                    3º. Con un solo sub-form "Duracion" almacenar en bbdd ya con el $idSol
+                            */ 
+                            $entityManager = $this->getDoctrine()->getManager();
+                                    $entityManager->persist($duracion);
+                                    $entityManager->flush();
+
+
+                            /*
+                                Aquí:
+                                    4º. Por cada sub-form "Duracion" almacenar en bbdd ya con el $idSol
+                            */
+
+                            /*
+                            foreach(x cada sub duracionType)
+                            {
+                                    $entityManager = $this->getDoctrine()->getManager();
+                                    $entityManager->persist($duracion);
+                                    $entityManager->flush();
+                            }
+                            */
+                        }
+                
                 return $this->redirectToRoute('formulario_datos');   
-        }
+            }
+            
 
 		return $this->render('@Formulario/Formulario/calculo.html.twig', array('form' => $form->createView()));  
 	}
@@ -66,8 +108,6 @@ class FormularioController extends Controller
             {
                 $solicitud = $form->getData();
 
-                // ... perform some action, such as saving the task to the database
-                // for example, if Task is a Doctrine entity, save it!
                  $entityManager = $this->getDoctrine()->getManager();
                  $entityManager->persist($solicitud);
                  $entityManager->flush();

@@ -27,13 +27,18 @@ class Calculo
      * @ORM\Column(name="Lugar", type="string", length=255)
      */
     private $lugar;
+/*  Se elimina de la entidad -----------------------------
 
     /**
      * @var string
      *
      * @ORM\Column(name="Fechas", type="string", length=255)
      */
+
+/*  Se elimina de la entidad -----------------------------
+
     private $fechas;
+   ------------------------------------------------------- */
 
     /**
      * @var string
@@ -83,6 +88,9 @@ class Calculo
         return $this->lugar;
     }
 
+
+/*  Se elimina de la entidad -------------------------
+
     /**
      * Set fechas
      *
@@ -90,6 +98,9 @@ class Calculo
      *
      * @return Calculo
      */
+
+/*  Se elimina de la entidad -------------------------
+
     public function setFechas($fechas)
     {
         $this->fechas = $fechas;
@@ -97,16 +108,20 @@ class Calculo
         return $this;
     }
 
+
     /**
      * Get fechas
      *
      * @return string
      */
+
+/*  Se elimina de la entidad -------------------------
+
     public function getFechas()
     {
         return $this->fechas;
     }
-
+------------------------------------------------------- */
 
     /**
      * Set servicios

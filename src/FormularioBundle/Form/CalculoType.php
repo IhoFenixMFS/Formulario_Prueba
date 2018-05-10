@@ -79,8 +79,14 @@ class CalculoType extends AbstractType
                             ),
                         ),//fin 'choices'
                         'label' => 'Lugar del evento: '
-                ))    
-            ->add('fechas', DuracionType::class, ['label' => 'Fechas:'])
+                ))
+
+/*  Se elimina de la entidad  --------------------------------------------------------------------------- 
+
+            ->add('fechas', DuracionType::class, ['label' => 'Fechas:'])//muereeeee
+
+--------------------------------------------------------------------------------------------------------- */
+
             ->add('servicios', ChoiceType::class, array(
                     'multiple' => true,
                     'expanded' => true,

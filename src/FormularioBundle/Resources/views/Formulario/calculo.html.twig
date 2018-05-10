@@ -5,8 +5,15 @@
 <div class="form_row" style="height:75%;background-color:yellow">
 	<h3 style="text-decoration: underline">Datos del solicitante: </h3>
 	{{ form_row(form.lugar) }}<br>
+{# Se elimina de la entidad ---------------------------------------------------------------------------
+
 	{{ form_row(form.fechas)}}<br>
-	{# Con esto añadiremos el subform de fechas tantas veces como haga falta #}
+
+   ---------------------------------------------------------------------------------------------------- #}
+
+{# Se elimina de la entidad ---------------------------------------------------------------------------
+
+{# Con esto añadiremos el subform de fechas tantas veces como haga falta 
 		<script type=&quot;text/javascript&quot;>
 			
 			var pics = <?php print_r($form['duraciones']->count())?>;
@@ -38,8 +45,7 @@
 			</td>
 		</tr>
 
-		<?php echo $form['pictures'][$num]['id']->render()?>
-		<?php echo $form['pictures'][$num]['file']->renderRow();?>
+   ---------------------------------------------------------------------------------------------------- #}
 
 	{{ form_row(form.servicios)}}<br>
 	
