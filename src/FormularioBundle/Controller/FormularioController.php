@@ -23,6 +23,7 @@ use FormularioBundle\Form\DatosType;
 use FormularioBundle\Form\FacturacionType;
 use FormularioBundle\Form\DuracionType;
 
+
 class FormularioController extends Controller
 {
     public function indexAction()
@@ -57,7 +58,7 @@ class FormularioController extends Controller
                                 Aquí:
                                     2º. Almacenar en $idsol el id de la solicitud almacenada (de $solicitud)
                             */
-                            $idSol = $solicitud->getidsolic();
+                            $idSol = $solicitud->getid();
 
                             /*
                                 Aquí:
@@ -93,7 +94,7 @@ class FormularioController extends Controller
             }
             
 
-		return $this->render('@Formulario/Formulario/calculo.html.twig', array('form' => $form->createView()));  
+		return $this->render('@Formulario/Formulario/calculo.html.twig', array('form' => $form->createView(), 'form2'-> => $form2);  
 	}
 
     public function datosAction(Request $request)
