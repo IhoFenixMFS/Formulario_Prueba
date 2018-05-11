@@ -1,12 +1,20 @@
-<h1 style="text-decoration: underline">Nueva solicitud.</h1>
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		<h1 style="text-decoration: underline">Nueva solicitud.</h1>
 
-{{form_start(form, {'action':'', 'method':'POST'})}}
-{% block duracion %}
-<div class="form_row" style="width:25%;height:30%;background-color:orange">
-	<h3 style="text-decoration: underline">Duración del evento: </h3>
-		{{ form_row(form.dia) }}<br>
-		{{ form_row(form.desde)}}<br>	
-		{{ form_row(form.hasta)}}<br>
-</div>
-{% endblock duracion%}
-{{form_end(form)}}
+			{{form_start(form, {'action':'', 'method':'POST'})}}
+			{% block duracion %}
+			<div class="form_row" style="width:25%;height:30%;background-color:orange">
+				<h3 style="text-decoration: underline">Duración del evento: </h3>
+					{{ form_row(form.dia) }}<br>
+					{{ form_row(form.desde)}}<br>	
+					{{ form_row(form.hasta)}}<br>
+			</div>
+			{% endblock duracion%}
+		{{form_end(form)}}
+
+	</body>
+</html>

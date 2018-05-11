@@ -24,14 +24,14 @@ class Duracion
     /**
      * @var \Date
      *
-     * @ORM\Column(name="Dia", type="date")
+     * @ORM\Column(name="dia", type="date")
      */
     private $dia;
 
     /**
      * @var int
      *
-     * @ORM\Column(name="Desde", type="integer")
+     * @ORM\Column(name="desde", type="integer")
      */
     private $desde;
 
@@ -42,6 +42,12 @@ class Duracion
      */
     private $hasta;
 
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="idSolicitud", type="integer")
+     */
+    private $idSolicitud;
 
     /**
      * Get id
@@ -123,6 +129,30 @@ class Duracion
     public function getHasta()
     {
         return $this->hasta;
+    }
+
+    /**
+     * Set idSolicitud
+     *
+     * @param integer $idSolicitud
+     *
+     * @return Duracion
+     */
+    public function setIdSolicitud($idSolicitud)
+    {
+        $this->idSolicitud = $idSolicitud;
+    
+        return $this;
+    }
+
+    /**
+     * Get idSolicitud
+     *
+     * @return integer
+     */
+    public function getIdSolicitud()
+    {
+        return $this->idSolicitud;
     }
 }
 

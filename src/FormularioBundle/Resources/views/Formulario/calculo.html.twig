@@ -1,58 +1,84 @@
-<h1 style="text-decoration: underline">Nueva solicitud.</h1>
-<!--	{#{}#}	-->
-{{form_start(form, {'action':'', 'method':'POST'})}}
-{% block calculo %}
-<div class="form_row" style="height:75%;background-color:yellow">
-	<h3 style="text-decoration: underline">Datos del solicitante: </h3>
-	{{ form_row(form.lugar) }}<br>
-{# Se elimina de la entidad ---------------------------------------------------------------------------
+<!DOCTYPE html>
+<html>
+	<head>
+	</head>
+	<body>
+		
+		<h1 style="text-decoration: underline">Nueva solicitud.</h1>
+		<!--	{#{}#}	-->
+		{{form_start(form, {'action':'', 'method':'POST'})}}
+		{% block calculo %}
+		<div class="form_row" style="height:75%;background-color:yellow">
+			<h3 style="text-decoration: underline">Datos del solicitante: </h3>
+			{{ form_row(form.lugar) }}<br>
+{# --- #}
+		{# Se elimina de la entidad ---------------------------------------------------------------------------
 
-	{{ form_row(form.fechas)}}<br>
+			{{ form_row(form.fechas)}}<br>
 
-   ---------------------------------------------------------------------------------------------------- #}
+		   ---------------------------------------------------------------------------------------------------- #}
 
-{# Se elimina de la entidad ---------------------------------------------------------------------------
+		{# Se elimina de la entidad ---------------------------------------------------------------------------
 
-{# Con esto añadiremos el subform de fechas tantas veces como haga falta 
-		<script type=&quot;text/javascript&quot;>
-			
-			var pics = <?php print_r($form['duraciones']->count())?>;
+		{# Con esto añadiremos el subform de fechas tantas veces como haga falta 
+				<script type=&quot;text/javascript&quot;>
+					
+					var pics = <?php print_r($form['duraciones']->count())?>;
 
-			function addDur(num) {
-			  var r = $.ajax({
-			    type: 'GET',
-			    url: '<?php echo url_for('formulario_duracion')?>'+'<?php echo ($form->getObject()->isNew()?'':'?id='.$form->getObject()->getId()).($form->getObject()->isNew()?'?num=':'&amp;num=')?>'+num,
-			    async: false
-			  }).responseText;
-			  return r;
-			}
-			$().ready(function() {
-			  $('button#add_duracion').click(function() {
-			    $(&quot;#extraduraciones&quot;).append(addDur(durs));
-			    dur = dur + 1;
-			  });
-			});
-		</script>
-		<?php echo $form ?>
-		<div id="extraduraciones"/>
-		<tr>
-			<td>
-				<div>
-					<button id="add_duracion" type="button">
-						<?php echo "Añadir otra fecha"?>
-					</button>
-				</div>
-			</td>
-		</tr>
+					function addDur(num) {
+					  var r = $.ajax({
+					    type: 'GET',
+					    url: '<?php echo url_for('formulario_duracion')?>'+'<?php echo ($form->getObject()->isNew()?'':'?id='.$form->getObject()->getId()).($form->getObject()->isNew()?'?num=':'&amp;num=')?>'+num,
+					    async: false
+					  }).responseText;
+					  return r;
+					}
+					$().ready(function() {
+					  $('button#add_duracion').click(function() {
+					    $(&quot;#extraduraciones&quot;).append(addDur(durs));
+					    dur = dur + 1;
+					  });
+					});
+				</script>
+				<?php echo $form ?>
+				<div id="extraduraciones"/>
+				<tr>
+					<td>
+						<div>
+							<button id="add_duracion" type="button">
+								<?php echo "Añadir otra fecha"?>
+							</button>
+						</div>
+					</td>
+				</tr>
 
-   ---------------------------------------------------------------------------------------------------- #}
+		   ---------------------------------------------------------------------------------------------------- #}
+{# --- #}
+		{% endblock calculo%}
+		{% block duracion %}
+			<div class="form_row" style="height:75%;background-color:pink">
+				<br>
+					<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
+						
+						use FormularioBundle\Form\DuracionType;
 
-	{{ form_row(form.servicios)}}<br>
-	
-	<button type="Button">Calcular</button>
-	{#<input type="button" value="Calcular" class="btn btn-default pull-left" /><br>#}
-    {{ form_row(form.importeTotal)}}<br>
-	{{ form_row(form.save)}}<br>
-</div>
-{% endblock calculo%}
-{{form_end(form)}}
+						$duracion = $form->getData();
+
+	                    $entityManager = $this->getDoctrine()->getManager();
+	                    $entityManager->persist($duracion);
+	                    $entityManager->flush();
+
+	                    if ($form->isSubmitted() && $form->isValid())
+	                    {
+	                    		//¿?
+	                    }
+						$template = $twig->loadTemplate('duracion.html.twig');
+						echo $template->render('@Formulario/Formulario/duracion.html.twig', array('form' => $form->createView());
+
+					</script>
+				<br>
+			</div>
+		{% endblock duracion %}
+		{{form_end(form)}}
+	</body>
+</html>

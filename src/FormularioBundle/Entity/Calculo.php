@@ -15,11 +15,11 @@ class Calculo
     /**
      * @var int
      *
-     * @ORM\Column(name="id_sol", type="integer")
+     * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="AUTO")
      */
-    private $id_sol;
+    private $id;
 
     /**
      * @var string
@@ -27,95 +27,96 @@ class Calculo
      * @ORM\Column(name="Lugar", type="string", length=255)
      */
     private $lugar;
-/*  Se elimina de la entidad -----------------------------
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Fechas", type="string", length=255)
-     */
+/*------------------------------------------------------- */
+    /*  Se elimina de la entidad -----------------------------
 
-/*  Se elimina de la entidad -----------------------------
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="Fechas", type="string", length=255)
+         */
 
-    private $fechas;
-   ------------------------------------------------------- */
+    /*  Se elimina de la entidad -----------------------------
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="Servicios", type="string", length=255)
-     */
-    private $servicios;
+        private $fechas;
+       ------------------------------------------------------- */
 
-    /**
-     * @var string
-     *
-     * @ORM\Column(name="ImporteTotal", type="decimal", precision=6, scale=2)
-     */
-    protected $importeTotal;
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="Servicios", type="string", length=255)
+         */
+        private $servicios;
 
-    /**
-     * Get id
-     *
-     * @return integer
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
+        /**
+         * @var string
+         *
+         * @ORM\Column(name="ImporteTotal", type="decimal", precision=6, scale=2)
+         */
+        protected $importeTotal;
 
-    /**
-     * Set lugar
-     *
-     * @param string $lugar
-     *
-     * @return Calculo
-     */
-    public function setLugar($lugar)
-    {
-        $this->lugar = $lugar;
-    
-        return $this;
-    }
+        /**
+         * Get id
+         *
+         * @return integer
+         */
+        public function getId()
+        {
+            return $this->id;
+        }
 
-    /**
-     * Get lugar
-     *
-     * @return string
-     */
-    public function getLugar()
-    {
-        return $this->lugar;
-    }
+        /**
+         * Set lugar
+         *
+         * @param string $lugar
+         *
+         * @return Calculo
+         */
+        public function setLugar($lugar)
+        {
+            $this->lugar = $lugar;
+        
+            return $this;
+        }
+
+        /**
+         * Get lugar
+         *
+         * @return string
+         */
+        public function getLugar()
+        {
+            return $this->lugar;
+        }
+
+    /*  Se elimina de la entidad -------------------------
+
+        /**
+         * Set fechas
+         *
+         * @param string $fechas
+         *
+         * @return Calculo
+         */
+
+    /*  Se elimina de la entidad -------------------------
+
+        public function setFechas($fechas)
+        {
+            $this->fechas = $fechas;
+        
+            return $this;
+        }
 
 
-/*  Se elimina de la entidad -------------------------
+        /**
+         * Get fechas
+         *
+         * @return string
+         */
 
-    /**
-     * Set fechas
-     *
-     * @param string $fechas
-     *
-     * @return Calculo
-     */
-
-/*  Se elimina de la entidad -------------------------
-
-    public function setFechas($fechas)
-    {
-        $this->fechas = $fechas;
-    
-        return $this;
-    }
-
-
-    /**
-     * Get fechas
-     *
-     * @return string
-     */
-
-/*  Se elimina de la entidad -------------------------
+    /*  Se elimina de la entidad -------------------------
 
     public function getFechas()
     {

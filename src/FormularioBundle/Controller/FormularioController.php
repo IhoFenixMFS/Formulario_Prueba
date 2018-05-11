@@ -69,9 +69,9 @@ class FormularioController extends Controller
                                 Aquí:
                                     3º. Con un solo sub-form "Duracion" almacenar en bbdd ya con el $idSol
                             */ 
-                            $entityManager = $this->getDoctrine()->getManager();
-                                    $entityManager->persist($duracion);
-                                    $entityManager->flush();
+                                $entityManager = $this->getDoctrine()->getManager();
+                                $entityManager->persist($duracion);
+                                $entityManager->flush();
 
 
                             /*
@@ -163,7 +163,7 @@ class FormularioController extends Controller
                 return $this->redirectToRoute('formulario_duracion');   
         }
 
-    return $this->render('@Formulario/Formulario/duracion.html.twig', array('form' => $form->createView()));  
+        return $this->render('@Formulario/Formulario/duracion.html.twig', array('form' => $form->createView()));  
     }
 
     /**
