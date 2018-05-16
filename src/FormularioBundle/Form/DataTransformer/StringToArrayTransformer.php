@@ -17,7 +17,7 @@ class StringToArrayTransformer implements DataTransformerInterface
         $max = sizeof($array);
         $arr='';
         for ($i=0; $i < $max ; $i++) { 
-           $arr = implode(' - ', $array[$i];
+           $arr = implode(' - ', $array[$i]);
         }
         return $arr;
     }
