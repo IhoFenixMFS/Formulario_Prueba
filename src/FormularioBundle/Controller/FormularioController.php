@@ -51,6 +51,8 @@ class FormularioController extends Controller
                     $entityManager->persist($solicitud);
                     $entityManager->flush();
 
+                    
+
                     if ($form2->isSubmitted() && $form2->isValid()) 
                         {
                             $duracion = $form2->getData();
@@ -88,13 +90,14 @@ class FormularioController extends Controller
                                     $entityManager->flush();
                             }
                             */
+
                         }
                 
                 return $this->redirectToRoute('formulario_datos');   
             }
             
-
-		return $this->render('@Formulario/Formulario/calculo.html.twig', array('form' => $form->createView(), 'form2'-> => $form2);  
+        /* Mediante un array se le pasa la vista generada de ambos formularios */
+		return $this->render('@Formulario/Formulario/calculo.html.twig', array('form' => $form->createView(), 'form2' => $form2->createView()));
 	}
 
     public function datosAction(Request $request)

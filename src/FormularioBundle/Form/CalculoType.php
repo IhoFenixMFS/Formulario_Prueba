@@ -20,10 +20,10 @@ use FormularioBundle\Entity\Duracion;
 use FormularioBundle\Entity\Facturacion;
 use FormularioBundle\Entity\Servicios;
 
-use FormularioBundle\Form\CalculoType;
 use FormularioBundle\Form\DatosType;
 use FormularioBundle\Form\FacturacionType;
 use FormularioBundle\Form\DuracionType;
+use FormularioBundle\Form\DataTransformer\StringToArrayTransformer;
 
 class CalculoType extends AbstractType
 {
@@ -33,6 +33,7 @@ class CalculoType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {   
+       $transformer = new StringToArrayTransformer();
         /**
          * Mediante el $builder vamos añadiendo al formulario un campo por cada elemento de la entidad asociada.
          * Estos elementos son de la forma:
@@ -103,7 +104,9 @@ class CalculoType extends AbstractType
             ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '])
             ->add('save', SubmitType::class, ['label' => 'Continuar con la solicitud.']);
 
-    }/**
+    }
+
+    /**
      * {@inheritdoc}
      */
     public function configureOptions(OptionsResolver $resolver)

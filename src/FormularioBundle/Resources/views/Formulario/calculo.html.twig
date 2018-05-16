@@ -8,9 +8,9 @@
 		<!--	{#{}#}	-->
 		{{form_start(form, {'action':'', 'method':'POST'})}}
 		{% block calculo %}
-		<div class="form_row" style="height:75%;background-color:yellow">
-			<h3 style="text-decoration: underline">Datos del solicitante: </h3>
-			{{ form_row(form.lugar) }}<br>
+			<div class="form_row" style="height:75%;background-color:yellow">
+				<h3 style="text-decoration: underline">Datos del solicitante: </h3>
+				{{ form_row(form.lugar) }}<br>
 {# --- #}
 		{# Se elimina de la entidad ---------------------------------------------------------------------------
 
@@ -54,33 +54,36 @@
 
 		   ---------------------------------------------------------------------------------------------------- #}
 {# --- #}
-		{% endblock calculo%}
-		{% block duracion %}
-			<div class="form_row" style="height:75%;background-color:pink">
-				<br>
+			{% block duracion %}
 				{{form_start(form2, {'action':'', 'method':'POST'})}}
+					<div  style="height:75%;background-color:pink">
+						<div class="duracion">
+							<p class="fechas_test">
+								<br>
+									{{ form_row(form2.dia) }}<br>
+									{{ form_row(form2.desde)}}<br>	
+									{{ form_row(form2.hasta)}}<br>
+								<br>
+							</p>
+						</div>
+						<div class="button">
+							<input type="button" value="Mas fechas" id="num_fechas" name="num_fechas"/>
+						</div>
+
+						<script type="text/javascript">
+						    var fechas_count =0;
+						    $('#duracion').on("click", ".fechas_test" function(){
+						    	$(this).after(
+						    		"<div class=\"duracion\" style=\"height:75%;background-color:pink\"><br>{{ form_row(form2.dia) }}<br>{{ form_row(form2.desde)}}<br>{{ form_row(form2.hasta)}}<br></div>")
+						    });
+						</script>
+					</div>
 				{{form_end(form2)}}
-					<!--script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer>
-						
-						use FormularioBundle\Form\DuracionType;
-
-						$duracion = $form->getData();
-
-	                    $entityManager = $this->getDoctrine()->getManager();
-	                    $entityManager->persist($duracion);
-	                    $entityManager->flush();
-
-	                    if ($form->isSubmitted() && $form->isValid())
-	                    {
-	                    		//¿?
-	                    }
-						$template = $twig->loadTemplate('duracion.html.twig');
-						echo $template->render('@Formulario/Formulario/duracion.html.twig', array('form' => $form->createView());
-
-					</script-->
-				<br>
-			</div>
-		{% endblock duracion %}
-		{{form_end(form)}}
+			{% endblock duracion %}
+			{{form_row(form.servicios)}}
+			{{form_row(form.importeTotal)}}
+			{{form_row(form.save)}}
+			{{form_end(form)}}
+		{% endblock calculo %}
 	</body>
 </html>
