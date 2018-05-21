@@ -1,37 +1,37 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	</head>
-	<body>	
-		<h1 style="text-decoration: underline">Pruebas.</h1>
-		
-		<div class="producto-container">
-            <div class="producto-row-0">
-                <div class="form-group col-md-5">
-                    <label class="sr-only" for="">Producto</label>
-                    <input type="text" name="producto" class="form-control input-sm" placeholder="Producto">
-                    <input type="hidden" name="prod_custom" class="form-control input-sm" placeholder="Producto Personalizado" value="0">
-                </div>
-                <div class="boton form-group col-md-1">
-                    <label class="sr-only" for="">Agregar otro Producto</label>
-                    <button id="add-producto" class="btn btn-primary input-sm"><strong>+</strong></button>
-                </div>
-            </div>
-        </div>	
-
-		<script type="text/javascript">
-			$("#add-producto").click(function(e){
-		        e.preventDefault();//eliminamos el evento por defecto
-		        $(".producto-row-0").clone().appendTo(".producto-container").attr("class","producto-row-"+(i++));
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		$(document).ready(function(){
+		    /*$("button").click(function(){
+		        $("p").clone().appendTo("body");
+		    });*/
+		    $("button").click(function(){
+		    	$("body").append($("p:first").clone(true));
 		    });
+		});
 		</script>
-
-		<script type="text/javascript">
-		   var bt_count = 0;
-			$('#blog-test-cont').on("click", ".blog-test", function(){
-				$(this).after("<p class=\"blog-test\">Pulsa para probar " + (++bt_count) + "</p>");
-			});
-		</script>
+	</head>
+	<body>
+		<button>Clonar</button>
+		<p  style="width: 750%; height:100%;background-color:pink">
+				{#
+					{{form_start(form, {'action':'', 'method':'POST'})}}
+				#}
+						<br>
+						<embed src="formulario_duracion">
+						{#
+							{{ form_row(form.dia) }}<br>
+							{{ form_row(form.desde)}}<br>	
+							{{ form_row(form.hasta)}}<br>
+						#}
+							Holaaaa!!
+						<br>
+				{#
+					{{form_end(form)}}
+				#}
+			</p>
 
 	</body>
 
