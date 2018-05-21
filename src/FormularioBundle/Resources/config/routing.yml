@@ -17,3 +17,7 @@ formulario_facturacion:
 formulario_duracion:
     path:     /formulario/duracion
     defaults: { _controller: FormularioBundle:Formulario:duracion }
+
+formulario_pruebasJQuery:
+    path:     /formulario/jq
+    defaults: { _controller: FormularioBundle:Formulario:jq }

@@ -31,6 +31,28 @@ class FormularioController extends Controller
         return $this->render('FormularioBundle:Formulario:index.html.twig');
     }
 
+     public function jqAction(Request $request)
+    {
+        $duracion = new Duracion();
+
+        $form = $this->createForm(DuracionType::class, $duracion);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) 
+            {
+                $duracion = $form->getData();
+
+                $entityManager = $this->getDoctrine()->getManager();
+                $entityManager->persist($duracion);
+                $entityManager->flush();
+                
+                return $this->redirectToRoute('formulario_pruebasJQuery');   
+            }
+            
+        return $this->render('@Formulario/Formulario/jq.html.twig', array('form' => $form->createView()));
+    }
+
+
     public function calculoAction(Request $request)
 	{
 		$calculo = new Calculo();

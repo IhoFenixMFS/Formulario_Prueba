@@ -143,6 +143,11 @@ class appDevDebugProjectContainerUrlMatcher extends Symfony\Bundle\FrameworkBund
                 return array (  '_controller' => 'FormularioBundle\\Controller\\FormularioController::facturacionAction',  '_route' => 'formulario_facturacion',);
             }
 
+            // formulario_pruebasJQuery
+            if ('/formulario/jq' === $pathinfo) {
+                return array (  '_controller' => 'FormularioBundle\\Controller\\FormularioController::jqAction',  '_route' => 'formulario_pruebasJQuery',);
+            }
+
         }
 
         // audiovisuales_homepage
