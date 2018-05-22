@@ -85,7 +85,6 @@ class CalculoType extends AbstractType
 /*  Se elimina de la entidad  --------------------------------------------------------------------------- 
 
             ->add('fechas', DuracionType::class, ['label' => 'Fechas:'])//muereeeee
-
 --------------------------------------------------------------------------------------------------------- */
 
             ->add('servicios', ChoiceType::class, array(
@@ -102,7 +101,8 @@ class CalculoType extends AbstractType
                     'required' => true,
                 ))
             ->add('importeTotal', MoneyType::class, ['label' => 'Importe Total: '])
-            ->add('save', SubmitType::class, ['label' => 'Continuar con la solicitud.']);
+           /* ->add('save', SubmitType::class, ['label' => 'Continuar con la solicitud.'])*/
+           ;
 
     }
 

@@ -1,0 +1,18 @@
+	<br>
+				<!--embed src="formulario_duracion" style="width: 100px; height:100px;"-->
+				{#
+					
+				#}
+					Holaaaa!!
+				<br>
+				
+				<!--	{{ form_row(form.dia) }}<br>
+					{{ form_row(form.desde)}}<br>	
+					{{ form_row(form.hasta)}}<br>
+			{#	<?php	{{form_start(form, {'action':'', 'method':'POST'})}} 
+			#}	
+				<?php	{{form_end(form)}} 
+					
+			-->
+
+						

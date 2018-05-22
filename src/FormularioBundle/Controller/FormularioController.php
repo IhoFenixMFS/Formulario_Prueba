@@ -31,7 +31,7 @@ class FormularioController extends Controller
         return $this->render('FormularioBundle:Formulario:index.html.twig');
     }
 
-     public function jqAction(Request $request)
+    public function jqAction(Request $request)
     {
         $duracion = new Duracion();
 

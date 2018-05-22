@@ -1,6 +1,16 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<script>
+		var bt_count = 0;
+		$(document).ready(function(){
+		    $("button").click(function(){
+		    	$("a3").append($("a1:first").clone(true));
+		    	echo (bt_count+1);
+		    });
+		});
+		</script>
 	</head>
 	<body>
 		
@@ -16,7 +26,7 @@
 
 			{{ form_row(form.fechas)}}<br>
 
-		   ---------------------------------------------------------------------------------------------------- #}
+		  ---------------------------------------------------------------------------------------------------- #}
 
 		{# Se elimina de la entidad ---------------------------------------------------------------------------
 
@@ -55,35 +65,20 @@
 		   ---------------------------------------------------------------------------------------------------- #}
 {# --- #}
 			{% block duracion %}
-				<div  style="height:75%;background-color:pink">
-					{{form_start(form2, {'action':'', 'method':'POST'})}}
-					
-					<div class="duracion">
-						<p class="fechas_test">
-							<br>
+				<div style="height:50%;width: 20%;background-color:violet;border-style: dotted">
+					<a3>
+						<button>Añadir nuevo día</button>
+						<a1 style="border-style: solid ">
+
+							{{form_start(form2, {'action':'', 'method':'POST'})}}
 								{{ form_row(form2.dia) }}<br>
 								{{ form_row(form2.desde)}}<br>	
 								{{ form_row(form2.hasta)}}<br>
-							<br>
-						</p>
-					</div>
-
-					<div class="button">
-						<input type="button" value="Mas fechas" id="num_fechas" name="num_fechas"/>
-					</div>
-
-					<script type="text/javascript">
-					    var fechas_count = 0;
-					    $("#duracion .duracio").bind(".fechas_test", "click", function(){
-					    	$(this).after("hola")
-					    });
-					    /*
-					    <div class=\"duracion\" style=\"height:75%;background-color:pink\"><br>{{ form_row(form2.dia)}}<br>{{ form_row(form2.desde)}}<br>{{ form_row(form2.hasta)}}<br></div>
-					    */
-					</script>
-
+							{{form_end(form2)}}
+						</a1>
+					</a3>
 				</div>
-				{{form_end(form2)}}
+
 			{% endblock duracion %}
 			{{form_row(form.servicios)}}
 			{{form_row(form.importeTotal)}}

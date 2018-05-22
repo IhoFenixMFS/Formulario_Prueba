@@ -16,6 +16,6 @@ if (!\class_exists(appDevDebugProjectContainer::class, false)) {
 
 return new \ContainerRy1bius\appDevDebugProjectContainer(array(
     'container.build_hash' => 'Ry1bius',
-    'container.build_id' => 'b1ad620e',
-    'container.build_time' => 1526471731,
+    'container.build_id' => '91428399',
+    'container.build_time' => 1526976338,
 ), __DIR__.\DIRECTORY_SEPARATOR.'ContainerRy1bius');
