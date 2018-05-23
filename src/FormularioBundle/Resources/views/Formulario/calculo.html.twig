@@ -3,11 +3,9 @@
 	<head>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-		var bt_count = 0;
-		$(document).ready(function(){
+		$(document).ready(function nuevo_dia(){
 		    $("button").click(function(){
-		    	$("a3").append($("a1:first").clone(true));
-		    	echo (bt_count+1);
+		    	$("div#duracion").append($("a:first").clone(true));
 		    });
 		});
 		</script>
@@ -16,73 +14,27 @@
 		
 		<h1 style="text-decoration: underline">Nueva solicitud.</h1>
 		<!--	{#{}#}	-->
-		{{form_start(form, {'action':'', 'method':'POST'})}}
+		{{form_start(form, {'action':'', 'method':'POST'})}} <!-- {'action':'', 'method':'POST'} -->
 		{% block calculo %}
 			<div class="form_row" style="height:75%;background-color:yellow">
 				<h3 style="text-decoration: underline">Datos del solicitante: </h3>
 				{{ form_row(form.lugar) }}<br>
-{# --- #}
-		{# Se elimina de la entidad ---------------------------------------------------------------------------
-
-			{{ form_row(form.fechas)}}<br>
-
-		  ---------------------------------------------------------------------------------------------------- #}
-
-		{# Se elimina de la entidad ---------------------------------------------------------------------------
-
-		{# Con esto añadiremos el subform de fechas tantas veces como haga falta 
-				<script type=&quot;text/javascript&quot;>
-					
-					var pics = <?php print_r($form['duraciones']->count())?>;
-
-					function addDur(num) {
-					  var r = $.ajax({
-					    type: 'GET',
-					    url: '<?php echo url_for('formulario_duracion')?>'+'<?php echo ($form->getObject()->isNew()?'':'?id='.$form->getObject()->getId()).($form->getObject()->isNew()?'?num=':'&amp;num=')?>'+num,
-					    async: false
-					  }).responseText;
-					  return r;
-					}
-					$().ready(function() {
-					  $('button#add_duracion').click(function() {
-					    $(&quot;#extraduraciones&quot;).append(addDur(durs));
-					    dur = dur + 1;
-					  });
-					});
-				</script>
-				<?php echo $form ?>
-				<div id="extraduraciones"/>
-				<tr>
-					<td>
-						<div>
-							<button id="add_duracion" type="button">
-								<?php echo "Añadir otra fecha"?>
-							</button>
-						</div>
-					</td>
-				</tr>
-
-		   ---------------------------------------------------------------------------------------------------- #}
-{# --- #}
 			{% block duracion %}
-				<div style="height:50%;width: 20%;background-color:violet;border-style: dotted">
-					<a3>
-						<button>Añadir nuevo día</button>
-						<a1 style="border-style: solid ">
-
-							{{form_start(form2, {'action':'', 'method':'POST'})}}
+				<div id="duracion" style="height:50%;width: 20%;background-color:violet;border-style: dotted">
+						<button onclick="nuevo_dia()">Añadir nuevo día</button>
+						<br>
+						<a style="border-style: solid ">
+							{{form_start(form2, {'attr':{'novalidate':'novalidate'}})}}
 								{{ form_row(form2.dia) }}<br>
 								{{ form_row(form2.desde)}}<br>	
 								{{ form_row(form2.hasta)}}<br>
 							{{form_end(form2)}}
-						</a1>
-					</a3>
+						</a>
 				</div>
-
 			{% endblock duracion %}
 			{{form_row(form.servicios)}}
 			{{form_row(form.importeTotal)}}
-			{{form_row(form.save)}}
+			{#{form_row(form.save)}#}
 			{{form_end(form)}}
 		{% endblock calculo %}
 	</body>

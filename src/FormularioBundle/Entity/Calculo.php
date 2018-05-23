@@ -28,101 +28,55 @@ class Calculo
      */
     private $lugar;
 
-/*------------------------------------------------------- */
-    /*  Se elimina de la entidad -----------------------------
 
-        /**
-         * @var string
-         *
-         * @ORM\Column(name="Fechas", type="string", length=255)
-         */
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Servicios", type="string", length=255)
+     */
+    private $servicios;
 
-    /*  Se elimina de la entidad -----------------------------
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="ImporteTotal", type="decimal", precision=6, scale=2)
+     */
+    protected $importeTotal;
 
-        private $fechas;
-       ------------------------------------------------------- */
-
-        /**
-         * @var string
-         *
-         * @ORM\Column(name="Servicios", type="string", length=255)
-         */
-        private $servicios;
-
-        /**
-         * @var string
-         *
-         * @ORM\Column(name="ImporteTotal", type="decimal", precision=6, scale=2)
-         */
-        protected $importeTotal;
-
-        /**
-         * Get id
-         *
-         * @return integer
-         */
-        public function getId()
-        {
-            return $this->id;
-        }
-
-        /**
-         * Set lugar
-         *
-         * @param string $lugar
-         *
-         * @return Calculo
-         */
-        public function setLugar($lugar)
-        {
-            $this->lugar = $lugar;
-        
-            return $this;
-        }
-
-        /**
-         * Get lugar
-         *
-         * @return string
-         */
-        public function getLugar()
-        {
-            return $this->lugar;
-        }
-
-    /*  Se elimina de la entidad -------------------------
-
-        /**
-         * Set fechas
-         *
-         * @param string $fechas
-         *
-         * @return Calculo
-         */
-
-    /*  Se elimina de la entidad -------------------------
-
-        public function setFechas($fechas)
-        {
-            $this->fechas = $fechas;
-        
-            return $this;
-        }
-
-
-        /**
-         * Get fechas
-         *
-         * @return string
-         */
-
-    /*  Se elimina de la entidad -------------------------
-
-    public function getFechas()
+    /**
+     * Get id
+     *
+     * @return integer
+     */
+    public function getId()
     {
-        return $this->fechas;
+        return $this->id;
     }
-------------------------------------------------------- */
+
+    /**
+     * Set lugar
+     *
+     * @param string $lugar
+     *
+     * @return Calculo
+     */
+    public function setLugar($lugar)
+    {
+        $this->lugar = $lugar;
+    
+        return $this;
+    }
+
+    /**
+     * Get lugar
+     *
+     * @return string
+     */
+    public function getLugar()
+    {
+        return $this->lugar;
+    }
+
 
     /**
      * Set servicios
