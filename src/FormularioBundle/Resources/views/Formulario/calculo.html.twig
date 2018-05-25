@@ -22,7 +22,8 @@
 		{{form_start(form, {'action':'', 'method':'POST'})}} <!-- {'action':'', 'method':'POST'} -->
 		{% block calculo %}
 			<div class="form_row" style="height:75%;background-color:yellow">
-				<h3 style="text-decoration: underline">Datos del solicitante: </h3>
+				<h3 style="text-decoration: underline">Datos de la solicitud: </h3>
+				{{form_row(form.importeTotal)}}
 				{{ form_row(form.lugar) }}<br>
 	<!--	{#{}#}	-->
 			{% block duracion %}
@@ -48,6 +49,7 @@
 							{{form_end(form2)}}
 						</a1>
 					</a3>
+					<button class="duracion">Añadir nuevo día</button>
 				</div>
 			{% endblock duracion %}
 <!--	{#{}#}	-->
@@ -58,6 +60,21 @@
 			{#{form_row(form.save)}#}
 			{{form_end(form)}}
 		{% endblock calculo %}
+		<button class="refrescar">Refrescar la pagina</button>
+		<button class="validar" type="submit">Validar</button>
+		<p id="text-output"></p>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<script>
+	        // Attach an event for when the user submits the form
+			$('form').on('submit', function(event) {
+	            // Prevent the page from reloading
+	            event.preventDefault();
+				// Set the text-output span to the value of the first input
+				var $input = $(this).find('input');
+				var input = $input.val();
+				$('#text-output').text("You typed: " + input);
+			});
+		</script>
 	</body>
 <!--	{#{}#}	-->
 </html>
