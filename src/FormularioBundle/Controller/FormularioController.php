@@ -61,8 +61,7 @@ class FormularioController extends Controller
 
         $form2 = $this->createForm(DuracionType::class, $duracion);
         $form2->handleRequest($request);
-
-
+/*
         if ($form->isSubmitted() && $form->isValid()) 
             {
                 $solicitud = $form->getData();
@@ -76,40 +75,40 @@ class FormularioController extends Controller
                     if ($form2->isSubmitted() && $form2->isValid()) 
                         {
                             $duracion = $form2->getData();
-                            /*
-                                Aquí:
-                                    2º. Almacenar en $idsol el id de la solicitud almacenada (de $solicitud)
-                            */
+                            //
+                            //    Aquí:
+                            //        2º. Almacenar en $idsol el id de la solicitud almacenada (de $solicitud)
+                            //
                             $idSol = $solicitud->getid();
 
-                            /*
-                                Aquí:
-                                    2º. Añandir el $idSol al obj $duracion o al $form2
-                            */
+                            //
+                            //    Aquí:
+                            //        2º. Añandir el $idSol al obj $duracion o al $form2
+                            //
 
 
-                            /*
-                                Aquí:
-                                    3º. Con un solo sub-form "Duracion" almacenar en bbdd ya con el $idSol
-                            */ 
+                            //
+                            //    Aquí:
+                            //        3º. Con un solo sub-form "Duracion" almacenar en bbdd ya con el $idSol
+                            // 
                                 $entityManager = $this->getDoctrine()->getManager();
                                 $entityManager->persist($duracion);
                                 $entityManager->flush();
 
 
-                            /*
-                                Aquí:
-                                    4º. Por cada sub-form "Duracion" almacenar en bbdd ya con el $idSol
-                            */
+                            //
+                            //     Aquí:
+                            //        4º. Por cada sub-form "Duracion" almacenar en bbdd ya con el $idSol
+                            //
 
-                            /*
-                            foreach(x cada sub duracionType)
-                            {
-                                    $entityManager = $this->getDoctrine()->getManager();
-                                    $entityManager->persist($duracion);
-                                    $entityManager->flush();
-                            }
-                            */
+                            //
+                            //foreach(x cada sub duracionType)
+                            //{
+                            //        $entityManager = $this->getDoctrine()->getManager();
+                            //        $entityManager->persist($duracion);
+                            //        $entityManager->flush();
+                            //}
+                            //
 
                         }
                 

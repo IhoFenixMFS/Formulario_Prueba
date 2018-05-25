@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html>
+<!--	{#{}#}	-->
 	<head>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<title>
+			Cálculo de presupuesto.
+		</title>
+		<!--script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 		<script>
-		$(document).ready(function nuevo_dia(){
-		    $("button").click(function(){
-		    	$("div#duracion").append($("a:first").clone(true));
+		$().ready(function(){
+		    $("button.duracion").click(function(){
+		    	$("a3").append($("a1:first").clone(true));
 		    });
 		});
-		</script>
+		</script-->
 	</head>
 	<body>
-		
+<!--	{#{}#}	-->
+	<!--	{#{}#}	-->
 		<h1 style="text-decoration: underline">Nueva solicitud.</h1>
 		<!--	{#{}#}	-->
 		{{form_start(form, {'action':'', 'method':'POST'})}} <!-- {'action':'', 'method':'POST'} -->
@@ -19,23 +24,40 @@
 			<div class="form_row" style="height:75%;background-color:yellow">
 				<h3 style="text-decoration: underline">Datos del solicitante: </h3>
 				{{ form_row(form.lugar) }}<br>
+	<!--	{#{}#}	-->
 			{% block duracion %}
-				<div id="duracion" style="height:50%;width: 20%;background-color:violet;border-style: dotted">
-						<button onclick="nuevo_dia()">Añadir nuevo día</button>
-						<br>
-						<a style="border-style: solid ">
-							{{form_start(form2, {'attr':{'novalidate':'novalidate'}})}}
+				<div style="height:50%;width: 20%;background-color:violet;border-style: dotted">
+					<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+					<script>
+						$().ready(function(){
+						    $("button.duracion").click(function(){
+						    	event.preventDefault();
+						    	$("a3").append($("a1:first").clone(true));
+						    });
+						});
+					</script>
+					<button class="duracion">Añadir nuevo día</button>
+					<a3>	
+						<a1  style="width: 100%; height:100%;background-color:pink">
+							{{form_start(form2, {'action':'', 'method':'POST'})}}
+							<!-- {'attr': {'novalidate': 'novalidate'}} -->
+							<!-- {'action':'', 'method':'POST'} -->
 								{{ form_row(form2.dia) }}<br>
 								{{ form_row(form2.desde)}}<br>	
 								{{ form_row(form2.hasta)}}<br>
 							{{form_end(form2)}}
-						</a>
+						</a1>
+					</a3>
 				</div>
 			{% endblock duracion %}
+<!--	{#{}#}	-->
+	<!--	{#{}#}	-->
+		<!--	{#{}#}	-->
 			{{form_row(form.servicios)}}
 			{{form_row(form.importeTotal)}}
 			{#{form_row(form.save)}#}
 			{{form_end(form)}}
 		{% endblock calculo %}
 	</body>
+<!--	{#{}#}	-->
 </html>
