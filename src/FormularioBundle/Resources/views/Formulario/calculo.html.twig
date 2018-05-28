@@ -23,7 +23,6 @@
 		{% block calculo %}
 			<div class="form_row" style="height:75%;background-color:yellow">
 				<h3 style="text-decoration: underline">Datos de la solicitud: </h3>
-				{{form_row(form.importeTotal)}}
 				{{ form_row(form.lugar) }}<br>
 	<!--	{#{}#}	-->
 			{% block duracion %}
@@ -60,9 +59,10 @@
 			{#{form_row(form.save)}#}
 			{{form_end(form)}}
 		{% endblock calculo %}
-		<button class="refrescar">Refrescar la pagina</button>
 		<button class="validar" type="submit">Validar</button>
-		<p id="text-output"></p>
+		<p id="text-output" style="height:20%;width: 20%;background-color:violet;border-style: dotted">
+			El importe introducido es: 
+		</p>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script>
 	        // Attach an event for when the user submits the form
@@ -72,8 +72,9 @@
 				// Set the text-output span to the value of the first input
 				var $input = $(this).find('input');
 				var input = $input.val();
-				$('#text-output').text("You typed: " + input);
+				$('#text-output').text("El importe introducido es: " + input + );
 			});
+			var answer = $("#answer").val();
 		</script>
 	</body>
 <!--	{#{}#}	-->
