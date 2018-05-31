@@ -70,8 +70,6 @@ class FormularioController extends Controller
                     $entityManager->persist($solicitud);
                     $entityManager->flush();
 
-                    
-
                     if ($form2->isSubmitted() && $form2->isValid()) 
                         {
                             $duracion = $form2->getData();
