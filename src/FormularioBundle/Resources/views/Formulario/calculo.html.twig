@@ -66,16 +66,33 @@
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 		<script>
 	        // Attach an event for when the user submits the form
+			
+
 			$('form').on('submit', function(event) {
 	            // Prevent the page from reloading
 	            event.preventDefault();
+	            event.preventDefault();
+
 				// Set the text-output span to the value of the first input
-				var $input = $(this).find('input');
-				var input = $input.val();
-				$('#text-output').text("El importe introducido es: " + input + );
+				var $input = $(this).find('select .formulariobundle_calculo_lugar');
+				var $tmp = $input.find('optgroup');
+				var input = $tmp.val();
+/*					function() {
+						tmp = $("#formulariobundle_calculo_lugar option:selected").text();
+						alert(tmp);
+					}
+				);
+*/
+				$('#text-output').text("El importe introducido es: " + input);
 			});
 			var answer = $("#answer").val();
-		</script>
+		</script><!--
+		<script type="text/javascript">
+			$(".formulariobundle_calculo_lugar").val(function() {
+				tmp = $("#formulariobundle_calculo_lugar option:selected").text();
+				$('#text-output').text(tmp);
+			});
+		</script>-->
 	</body>
 <!--	{#{}#}	-->
 </html>
