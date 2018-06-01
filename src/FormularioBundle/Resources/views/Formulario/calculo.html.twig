@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html>
 <!--	{#{}#}	-->
 	<head>
@@ -75,19 +75,47 @@
 
 				// Set the text-output span to the value of the first input
 				var $input = $(this).find('select .formulariobundle_calculo_lugar');
-				var $tmp = $input.find('optgroup');
+				var $tmp = $input.find('option:selected > optgroup');
 				var input = $tmp.val();
+
+				$("#formulariobundle_calculo_lugar").change(function() {
+					tmp = $("#formulariobundle_calculo_lugar option:selected").text();
+					$('#text-output').val(tmp);
+				});
+
+/*
+
+			<select id="poblaciones" name="poblaciones">
+				<option value="1">Altafulla</option>
+				<option value="2">Creixell</option>
+				<option value="3">La Riera</option>
+				<option value="4">Torredembarra</option>
+			</select>
+
+				$("#poblaciones").change(function() {
+					tmp = $("#poblaciones option:selected").text();
+					$('#poblacionseleccionada').val(tmp);
+				});
+*/
+
 /*					function() {
 						tmp = $("#formulariobundle_calculo_lugar option:selected").text();
 						alert(tmp);
-					}
-				);
+					});
 */
 				$('#text-output').text("El importe introducido es: " + input);
 			});
 			var answer = $("#answer").val();
-		</script><!--
-		<script type="text/javascript">
+		</script>
+	<!--	<script type="text/javascript">
+			$('form').on('submit', function(event) {
+				$(".formulariobundle_calculo_lugar").val(function() {
+					tmp = $("#formulariobundle_calculo_lugar option:selected").text();
+					$('#text-output').text(tmp);
+				});
+			});	
+		</script>-->
+		<!--<script type="text/javascript">
 			$(".formulariobundle_calculo_lugar").val(function() {
 				tmp = $("#formulariobundle_calculo_lugar option:selected").text();
 				$('#text-output').text(tmp);
