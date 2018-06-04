@@ -64,6 +64,19 @@
 			El importe introducido es: 
 		</p>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+		<!--	-->
+			<script>
+				$('document').on('submit', function valFechas(){
+					("a3").each(function(){
+						elem = $(this);
+						dia = this.('.formulariobundle_duracion_dia').text();
+						desde = this.('.formulariobundle_duracion_desde').text();
+						hasta = this.('.formulariobundle_duracion_hasta').text();
+
+					})
+				});
+			</script>
+		<!--	-->
 		<script>
 	        // Attach an event for when the user submits the form
 			
@@ -76,12 +89,15 @@
 				// Set the text-output span to the value of the first input
 				var $input = $(this).find('select .formulariobundle_calculo_lugar');
 				var $tmp = $input.find('option:selected > optgroup');
-				var input = $tmp.val();
+				
 
 				$("#formulariobundle_calculo_lugar").change(function() {
-					tmp = $("#formulariobundle_calculo_lugar option:selected").text();
+					$tmp = $("#formulariobundle_calculo_lugar option:selected").text();
 					$('#text-output').val(tmp);
+					return(this);
 				});
+
+				var input = $tmp.val();
 
 /*
 
